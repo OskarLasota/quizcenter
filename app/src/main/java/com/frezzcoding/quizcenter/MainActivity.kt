@@ -4,37 +4,38 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.frezzcoding.quizcenter.ui.theme.QuizcenterTheme
+import com.frezzcoding.quizcenter.presentation.utils.Screen
+import com.frezzcoding.quizcenter.presentation.utils.SetupNavigation
+import com.frezzcoding.quizcenter.presentation.theme.QuizcenterTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    companion object {
+        private val DEFAULT_SCREEN = Screen.HomeFeed.route
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             QuizcenterTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    SetupNavigation(startDestination = DEFAULT_SCREEN)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     QuizcenterTheme {
-        Greeting("Android")
+
     }
 }

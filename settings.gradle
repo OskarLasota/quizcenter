@@ -14,3 +14,15 @@ dependencyResolutionManagement {
 }
 rootProject.name = "quizcenter"
 include ':app'
+include ':features'
+include ':features:home'
+include ':features:home:core'
+include ':features:home:contract'
+include ':infrastructure'
+include ':domain'
+include ':data'
+include ':data:core'
+include ':data:network'
+include ':presentation'
+include ':presentation:core'
+include ':presentation:ui'

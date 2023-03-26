@@ -1,0 +1,27 @@
+apply from: "$rootDir/default-module-config.gradle"
+
+dependencies {
+
+    implementation(
+            deps.compose.ui,
+            deps.compose.material,
+            deps.hilt.hiltAndroid,
+            deps.compose.navigationCompose,
+            deps.compose.composeToolingUi,
+            deps.androidx.lifecycleKtx,
+            deps.androidx.lifecycleViewmodel,
+            deps.androidx.activityCompose,
+            deps.androidx.hiltNavigationCompose,
+            deps.coroutines
+    )
+    testImplementation(
+            test.androidTestCore,
+            test.core
+    )
+    debugImplementation(
+            deps.debugCompose
+    )
+    kapt(
+            deps.kaptHilt
+    )
+}
