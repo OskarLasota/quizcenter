@@ -1,8 +1,8 @@
 package com.frezzcoding.quizcenter.di
 
-import com.frezzcoding.quizcenter.domain.HomeRepository
-import com.frezzcoding.quizcenter.domain.SampleData
-import com.frezzcoding.quizcenter.presentation.ui.home.HomeRepositoryImpl
+import com.frezzcoding.core.HomeRepository
+import com.frezzcoding.domain.SampleData
+import com.frezzcoding.core.HomeRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 abstract class AppModule {
 
     @Binds
-    abstract fun provideHomeRepository(impl: HomeRepositoryImpl): HomeRepository
+    abstract fun provideHomeRepository(impl: com.frezzcoding.core.HomeRepositoryImpl): com.frezzcoding.core.HomeRepository
 
 //    @Binds
 //    abstract fun provideHomeViewModel(impl: HomeViewModel): HomeViewModel
@@ -27,6 +27,6 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun provideSampleData() = SampleData
+    fun provideSampleData() = com.frezzcoding.domain.SampleData
 
 }

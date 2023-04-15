@@ -8,8 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.frezzcoding.quizcenter.presentation.utils.Screen
-import com.frezzcoding.quizcenter.presentation.utils.SetupNavigation
+import com.frezzcoding.core.screens.Screen
+import com.frezzcoding.core.screens.SetupNavigation
 import com.frezzcoding.quizcenter.presentation.theme.QuizcenterTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     companion object {
-        private val DEFAULT_SCREEN = Screen.HomeFeed.route
+        private val DEFAULT_SCREEN = com.frezzcoding.core.screens.Screen.HomeFeed.route
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuizcenterTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    SetupNavigation(startDestination = DEFAULT_SCREEN)
+                    com.frezzcoding.core.screens.SetupNavigation(startDestination = DEFAULT_SCREEN)
                 }
             }
         }
