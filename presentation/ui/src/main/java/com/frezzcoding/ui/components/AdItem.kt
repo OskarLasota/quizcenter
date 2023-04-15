@@ -1,4 +1,4 @@
-package com.frezzcoding.quizcenter.presentation.components
+package com.frezzcoding.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import com.frezzcoding.quizcenter.domain.AdModel
+import com.frezzcoding.network.AdModel
 
 @Composable
-fun AdItem(ad: AdModel, onPressed: () -> Unit) {
+fun AdItem(ad: com.frezzcoding.network.AdModel, onPressed: () -> Unit) {
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)

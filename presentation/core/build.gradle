@@ -24,4 +24,8 @@ dependencies {
     kapt(
             deps.kaptHilt
     )
+    implementation(
+            project(":presentation:ui"),
+            project(":domain")
+    )
 }

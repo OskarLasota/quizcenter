@@ -1,4 +1,4 @@
-package com.frezzcoding.quizcenter.presentation.components
+package com.frezzcoding.ui.components
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.frezzcoding.quizcenter.presentation.utils.Screen
+import com.frezzcoding.ui.screens.Screen
 
 @Composable
 fun BottomBar(navController: NavController) {

@@ -1,4 +1,4 @@
-package com.frezzcoding.quizcenter.presentation.utils
+package com.frezzcoding.core.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
@@ -17,7 +17,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.frezzcoding.quizcenter.presentation.components.BottomBar
-import com.frezzcoding.quizcenter.presentation.ui.home.HomeScreen
+import com.frezzcoding.ui.screens.HomeScreen
+import com.frezzcoding.ui.screens.Screen
 
 
 @Composable

@@ -1,6 +1,6 @@
-package com.frezzcoding.quizcenter.presentation.ui.home
+package com.frezzcoding.core.screens
 
-import com.frezzcoding.domain.AdModel
+import com.frezzcoding.network.AdModel
 import java.util.Collections.emptyList
 
-data class HomeUiState(val list: List<com.frezzcoding.domain.AdModel> = emptyList())
+data class HomeUiState(val list: List<com.frezzcoding.network.AdModel> = emptyList())
