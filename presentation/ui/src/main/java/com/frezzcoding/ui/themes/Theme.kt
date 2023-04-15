@@ -1,11 +1,10 @@
-package com.frezzcoding.quizcenter.presentation.theme
+package com.frezzcoding.ui.themes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import com.frezzcoding.ui.themes.Typography
 
 private val DarkColorPalette = darkColors(
         primary = Purple200,

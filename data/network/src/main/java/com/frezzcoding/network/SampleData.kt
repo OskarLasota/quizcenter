@@ -1,4 +1,4 @@
-package com.frezzcoding.quizcenter.domain
+package com.frezzcoding.domain
 
 object SampleData {
 

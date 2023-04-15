@@ -1,4 +1,4 @@
-package com.frezzcoding.quizcenter.presentation.theme
+package com.frezzcoding.ui.themes
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

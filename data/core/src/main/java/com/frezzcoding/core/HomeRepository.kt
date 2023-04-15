@@ -1,5 +1,5 @@
 package com.frezzcoding.quizcenter.domain
 
 interface HomeRepository {
-    fun getAds(): List<AdModel>
+    fun getAds(): List<com.frezzcoding.domain.AdModel>
 }
