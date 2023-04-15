@@ -1,4 +1,4 @@
-package com.frezzcoding.core
+package com.frezzcoding.core.domain.repo
 
 import com.frezzcoding.network.AdModel
 
