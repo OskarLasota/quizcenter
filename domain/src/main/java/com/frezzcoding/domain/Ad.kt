@@ -1,4 +1,3 @@
 package com.frezzcoding.domain
 
-class Ad {
-}
+data class Ad(val id: Int, val position: Int, val text: String)
