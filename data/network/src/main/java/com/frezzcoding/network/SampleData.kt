@@ -1,4 +1,4 @@
-package com.frezzcoding.domain
+package com.frezzcoding.network
 
 object SampleData {
 

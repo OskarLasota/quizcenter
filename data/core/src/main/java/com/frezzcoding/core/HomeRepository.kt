@@ -1,5 +1,7 @@
-package com.frezzcoding.quizcenter.domain
+package com.frezzcoding.core
+
+import com.frezzcoding.network.AdModel
 
 interface HomeRepository {
-    fun getAds(): List<com.frezzcoding.domain.AdModel>
+    fun getAds(): List<AdModel>
 }

@@ -1,9 +1,10 @@
-package com.frezzcoding.quizcenter.presentation.ui.home
+package com.frezzcoding.core
 
-import com.frezzcoding.quizcenter.domain.HomeRepository
+import com.frezzcoding.network.AdModel
+import com.frezzcoding.network.SampleData
 import javax.inject.Inject
 
-
+//todo sampledata is temporary
 class HomeRepositoryImpl @Inject constructor(private val dataSource: SampleData) : HomeRepository {
 
     override fun getAds(): List<AdModel> {
