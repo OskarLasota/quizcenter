@@ -3,7 +3,7 @@ package com.frezzcoding.core
 import com.frezzcoding.domain.Ad
 import com.frezzcoding.network.AdModel
 
-internal class AdMapper {
+class AdMapper {
 
     fun apply(adModel: AdModel): Ad {
         return Ad(

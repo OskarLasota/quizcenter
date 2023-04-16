@@ -15,6 +15,7 @@ dependencies {
             deps.coroutines,
             project(":domain"),
             project(":data:network"),
+            project(":data:core"),
     )
     testImplementation(
             test.androidTestCore,
