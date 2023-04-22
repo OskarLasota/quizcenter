@@ -2,7 +2,7 @@ allprojects {
 
     ext {
         ktxVersion = '1.9.0'
-        composeVersion = '1.3.0-rc01'
+        composeVersion = '1.5.0-alpha03'
         androidXlifecycle = '2.6.1'
         activityCompose = '1.3.1'
         navigationKtx = '2.5.2'
@@ -20,9 +20,9 @@ allprojects {
 
         deps = [
                 compose     : [
-                        ui               : "androidx.compose.ui:ui:$compose_version",
+                        ui               : "androidx.compose.ui:ui:1.4.2",
                         material         : "androidx.compose.material:material:$compose_version",
-                        navigationCompose: "androidx.navigation:navigation-compose:2.5.2",
+                        navigationCompose: "androidx.navigation:navigation-compose:2.5.3",
                         composeToolingUi : "androidx.compose.ui:ui-tooling-preview:$compose_version",
                 ],
                 debugCompose: [
@@ -30,10 +30,12 @@ allprojects {
                         "androidx.compose.ui:ui-test-manifest:$compose_version",
                 ],
                 androidx    : [
-                        lifecycleKtx         : "androidx.lifecycle:lifecycle-runtime-ktx:$androidXlifecycle", //todo this was 2.3.1 could cause issues?
-                        lifecycleViewmodel   : "androidx.lifecycle:lifecycle-viewmodel-compose:$androidXlifecycle", //todo this was 2.5.1 could cause issues?
-                        activityCompose      : "androidx.activity:activity-compose:$activityCompose",
-                        hiltNavigationCompose: "androidx.hilt:hilt-navigation-compose:$hiltCompiler"
+                        lifecycleKtx         : "androidx.lifecycle:lifecycle-runtime-ktx:$androidXlifecycle",
+                        lifecycleViewmodel   : "androidx.lifecycle:lifecycle-viewmodel-compose:$androidXlifecycle",
+                        activityCompose      : "androidx.activity:activity-compose:1.7.1",
+                        hiltNavigationCompose: "androidx.hilt:hilt-navigation-compose:$hiltCompiler",
+                        foundation: 'androidx.compose.foundation:foundation:1.0.0-rc01'
+
                 ],
                 hilt        : [
                         hiltAndroid: "com.google.dagger:hilt-android:$hiltCore",

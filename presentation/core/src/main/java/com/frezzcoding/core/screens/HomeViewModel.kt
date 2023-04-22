@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(useCase: com.frezzcoding.core.domain.usecase.HomeFeedUseCase) : ViewModel() {
+class HomeViewModel @Inject constructor(useCase: HomeFeedUseCase) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
 

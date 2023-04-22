@@ -3,9 +3,6 @@ package com.frezzcoding.core.screens
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -16,7 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.frezzcoding.quizcenter.presentation.components.BottomBar
+import com.frezzcoding.ui.components.BottomBar
 import com.frezzcoding.ui.screens.HomeScreen
 import com.frezzcoding.ui.screens.Screen
 

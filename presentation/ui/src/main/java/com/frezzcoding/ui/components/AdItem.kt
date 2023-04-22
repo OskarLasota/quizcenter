@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import com.frezzcoding.network.AdModel
+import com.frezzcoding.domain.Ad
 
 @Composable
-fun AdItem(ad: com.frezzcoding.network.AdModel, onPressed: () -> Unit) {
+fun AdItem(ad: Ad, onPressed: () -> Unit) {
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)

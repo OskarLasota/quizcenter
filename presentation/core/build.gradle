@@ -26,6 +26,7 @@ dependencies {
     )
     implementation(
             project(":presentation:ui"),
-            project(":domain")
+            project(":domain"), project(':features:home:core',)
+
     )
 }

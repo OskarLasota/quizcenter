@@ -1,42 +1,28 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
+apply from: "$rootDir/default-module-config.gradle"
 
-android {
-    compileSdk 32
-
-    defaultConfig {
-        applicationId "com.frezzcoding.contract"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-}
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(
+            deps.compose.ui,
+            deps.compose.material,
+            deps.hilt.hiltAndroid,
+            deps.compose.navigationCompose,
+            deps.compose.composeToolingUi,
+            deps.androidx.lifecycleKtx,
+            deps.androidx.lifecycleViewmodel,
+            deps.androidx.activityCompose,
+            deps.androidx.hiltNavigationCompose,
+            deps.coroutines
+    )
+    testImplementation(
+            test.androidTestCore,
+            test.core
+    )
+    debugImplementation(
+            deps.debugCompose
+    )
+    kapt(
+            deps.kaptHilt
+    )
 }
