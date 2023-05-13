@@ -1,11 +1,19 @@
 apply from: "$rootDir/default-module-config.gradle"
 
+android {
+    namespace 'com.frezzcoding.quizcenter.domain'
+    buildFeatures {
+        compose true
+    }
+}
+
 dependencies {
 
     implementation(
             deps.compose.ui,
             deps.compose.material,
             deps.hilt.hiltAndroid,
+            deps.debugCompose,
             deps.compose.navigationCompose,
             deps.compose.composeToolingUi,
             deps.androidx.lifecycleKtx,

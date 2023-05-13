@@ -1,10 +1,18 @@
 apply from: "$rootDir/default-module-config.gradle"
 
+android {
+    namespace 'com.frezzcoding.quizcenter.data.network'
+    buildFeatures {
+        compose true
+    }
+}
+
 dependencies {
 
     implementation(
             deps.compose.ui,
             deps.compose.material,
+            deps.debugCompose,
             deps.hilt.hiltAndroid,
             deps.compose.navigationCompose,
             deps.compose.composeToolingUi,
@@ -24,5 +32,4 @@ dependencies {
     kapt(
             deps.kaptHilt
     )
-
 }

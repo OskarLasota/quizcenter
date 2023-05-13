@@ -22,7 +22,7 @@ import com.frezzcoding.ui.screens.Screen
 fun NavigationGraph(
     navController: NavHostController,
     startDestination: String,
-    scrollState: LazyListState
+//    scrollState: LazyListState
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         composable(
@@ -41,24 +41,24 @@ fun SetupNavigation(startDestination: String) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    val scrollState = rememberLazyListState()
-    val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
-
-    Scaffold(bottomBar = {
-        if ((currentRoute == Screen.HomeFeed.route && state)) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    BottomBar(navController = navController)
-                }
-            }
-        }
-    }) {
-        NavigationGraph(
-            navController = navController,
-            startDestination = startDestination,
-            scrollState = scrollState
-        )
-    }
+//    val scrollState = rememberLazyListState()
+//    val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
+//
+//    Scaffold(bottomBar = {
+//        if ((currentRoute == Screen.HomeFeed.route && state)) {
+//            Column(
+//                horizontalAlignment = Alignment.CenterHorizontally
+//            ) {
+//                Box(contentAlignment = Alignment.Center) {
+//                    BottomBar(navController = navController)
+//                }
+//            }
+//        }
+//    }) {
+//        NavigationGraph(
+//            navController = navController,
+//            startDestination = startDestination,
+//            scrollState = scrollState
+//        )
+//    }
 }

@@ -7,6 +7,7 @@ plugins {
 
 android {
     compileSdk 33
+    namespace 'com.frezzcoding.quizcenter.app'
 
     defaultConfig {
         applicationId "com.frezzcoding.quizcenter"
@@ -28,17 +29,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion '1.4.7'
     }
     packagingOptions {
         resources {
@@ -51,9 +52,10 @@ dependencies {
     implementation(
             deps.compose.ui,
             deps.compose.material,
-            deps.hilt.hiltAndroid,
             deps.compose.navigationCompose,
             deps.compose.composeToolingUi,
+            deps.debugCompose,
+            deps.hilt.hiltAndroid,
             deps.androidx.lifecycleKtx,
             deps.androidx.lifecycleViewmodel,
             deps.androidx.activityCompose,
