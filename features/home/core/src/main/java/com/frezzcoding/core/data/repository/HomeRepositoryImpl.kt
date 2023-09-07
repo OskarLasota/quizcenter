@@ -6,11 +6,9 @@ import com.frezzcoding.network.SampleData
 import javax.inject.Inject
 
 //todo sampledata is temporary
-class HomeRepositoryImpl @Inject constructor(
-    private val dataSource: SampleData
-) : HomeRepository {
+class HomeRepositoryImpl @Inject constructor() : HomeRepository {
 
     override fun getAds(): List<AdModel> {
-        return dataSource.advertisementsSample
+        return SampleData.advertisementsSample
     }
 }
