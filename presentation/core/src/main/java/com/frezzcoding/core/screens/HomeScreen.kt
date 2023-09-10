@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.screens
+package com.frezzcoding.core.screens
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
@@ -9,9 +9,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.frezzcoding.core.screens.HomeUiState
-import com.frezzcoding.core.screens.HomeViewModel
 import com.frezzcoding.ui.components.HomeFeed
+import com.frezzcoding.ui.screens.Screen
 
 
 @Composable
@@ -22,15 +21,14 @@ fun HomeScreen(
     val context = LocalContext.current as Activity
 
     context.window.statusBarColor = Color.Gray.toArgb()
-    context.window.navigationBarColor = Color.White.toArgb()
 
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
 
 
-    HomeFeed(ads = state.list) { onAdPressed() }
+    HomeFeed(ads = state.list) { onAdPressed(navController) }
 
 }
 
-fun onAdPressed() {
-
+fun onAdPressed(navController: NavController) {
+    navController.navigate(Screen.HomeFeed.route)
 }
