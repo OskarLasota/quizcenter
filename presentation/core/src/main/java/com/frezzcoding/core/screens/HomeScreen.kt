@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.frezzcoding.ui.components.HomeFeed
-import com.frezzcoding.ui.screens.Screen
+import com.frezzcoding.ui.screens.Screens
 
 
 @Composable
@@ -30,5 +30,5 @@ fun HomeScreen(
 }
 
 fun onAdPressed(navController: NavController) {
-    navController.navigate(Screen.HomeFeed.route)
+    navController.navigate(Screens.HomeFeed.route)
 }

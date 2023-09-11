@@ -6,11 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.frezzcoding.core.screens.SetupNavigation
-import com.frezzcoding.ui.screens.Screen
+import com.frezzcoding.ui.screens.Screens
 import com.frezzcoding.ui.themes.QuizcenterTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     companion object {
-        private val DEFAULT_SCREEN = Screen.HomeFeed.route
+        private val DEFAULT_Screens = Screens.HomeFeed.route
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
     fun setupNavigationComposable() {
         QuizcenterTheme {
             Surface(modifier = Modifier.fillMaxSize(), elevation = 2.dp) {
-                SetupNavigation(startDestination = DEFAULT_SCREEN)
+                SetupNavigation(startDestination = DEFAULT_Screens)
             }
         }
     }

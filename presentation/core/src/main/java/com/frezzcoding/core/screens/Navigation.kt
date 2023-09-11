@@ -16,8 +16,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.frezzcoding.ui.components.BottomBar
-import com.frezzcoding.ui.screens.Screen
+import com.frezzcoding.ui.components.BottomNavigationBar
+import com.frezzcoding.ui.screens.Screens
 
 
 @Composable
@@ -27,11 +27,14 @@ fun NavigationGraph(
     scrollState: LazyListState
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        composable(route = Screen.HomeFeed.route) {
+        composable(route = Screens.HomeFeed.route) {
             HomeScreen(navController = navController)
         }
-        composable(route = Screen.NewQuizScreen.route) {
+        composable(route = Screens.NewQuizScreens.route) {
             NewQuizScreen(navController = navController)
+        }
+        composable(route = Screens.SearchScreens.route) {
+            SearchScreen(navController = navController)
         }
     }
 }
@@ -48,12 +51,12 @@ fun SetupNavigation(startDestination: String) {
     val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
 
     Scaffold(bottomBar = {
-        if ((currentRoute == Screen.HomeFeed.route && state)) {
+        if ((currentRoute == Screens.HomeFeed.route && state)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Box(contentAlignment = Alignment.Center) {
-                    BottomBar(navController = navController)
+                    BottomNavigationBar(navController = navController)
                 }
             }
         }
