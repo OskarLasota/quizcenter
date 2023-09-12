@@ -16,6 +16,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.frezzcoding.core.screens.home.HomeScreen
+import com.frezzcoding.core.screens.newquiz.NewQuizScreen
+import com.frezzcoding.core.screens.profile.ProfileScreen
+import com.frezzcoding.core.screens.search.SearchScreen
 import com.frezzcoding.ui.components.BottomNavigationBar
 import com.frezzcoding.ui.screens.Screens
 

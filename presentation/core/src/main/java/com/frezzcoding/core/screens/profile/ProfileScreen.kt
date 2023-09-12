@@ -1,4 +1,4 @@
-package com.frezzcoding.core.screens
+package com.frezzcoding.core.screens.profile
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
@@ -7,9 +7,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.frezzcoding.core.screens.home.HomeViewModel
 
 @Composable
-fun SearchScreen(
+fun ProfileScreen(
     navController: NavController,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {

@@ -1,4 +1,4 @@
-package com.frezzcoding.core.screens
+package com.frezzcoding.core.screens.home
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
