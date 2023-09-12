@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.frezzcoding.quizcenter.presentation.ui.R
@@ -25,5 +26,11 @@ sealed class Screens(val route: String, @StringRes val titleResId: Int, val icon
         route = "search_screen",
         titleResId = R.string.search_screen_title,
         icon = Icons.Default.Search
+    )
+
+    object ProfileScreen : Screens(
+        route = "profile_screen",
+        titleResId = R.string.profile_screen_title,
+        icon = Icons.Default.Person
     )
 }

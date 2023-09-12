@@ -36,6 +36,9 @@ fun NavigationGraph(
         composable(route = Screens.SearchScreens.route) {
             SearchScreen(navController = navController)
         }
+        composable(route = Screens.ProfileScreen.route) {
+            ProfileScreen(navController = navController)
+        }
     }
 }
 
