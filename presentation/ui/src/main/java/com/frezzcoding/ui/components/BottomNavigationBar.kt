@@ -19,7 +19,8 @@ fun BottomNavigationBar(navController: NavController) {
     val screens = listOf(
         Screens.HomeFeed,
         Screens.NewQuizScreens,
-        Screens.SearchScreens
+        Screens.SearchScreens,
+        Screens.ProfileScreen
     )
 
     BottomNavigation(backgroundColor = DefaultPurple) {
