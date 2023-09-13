@@ -66,6 +66,10 @@ fun SetupNavigation(startDestination: String) {
                     BottomNavigationBar(navController = navController)
                 }
             }
+        } else {
+            Box(contentAlignment = Alignment.Center) {
+                BottomNavigationBar(navController = navController)
+            }
         }
     }) {
         NavigationGraph(
