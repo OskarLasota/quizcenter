@@ -9,7 +9,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.frezzcoding.ui.screens.Screens
-import com.frezzcoding.ui.themes.DefaultPurple
+import com.frezzcoding.ui.themes.DefaultGreyish
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -23,7 +23,7 @@ fun BottomNavigationBar(navController: NavController) {
         Screens.ProfileScreen
     )
 
-    BottomNavigation(backgroundColor = DefaultPurple) {
+    BottomNavigation(backgroundColor = DefaultGreyish) {
         screens.forEach { screen ->
             BottomNavigationItem(
                 icon = {

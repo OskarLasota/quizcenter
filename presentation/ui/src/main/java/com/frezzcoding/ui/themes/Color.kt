@@ -2,8 +2,5 @@ package com.frezzcoding.ui.themes
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
-val DefaultPurple = Color(101, 119, 134)
+val DefaultGreyish = Color(101, 119, 134)
+val DefaultLightGreyish = Color(121, 139, 144)

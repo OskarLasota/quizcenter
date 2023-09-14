@@ -7,15 +7,15 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
-        primary = Purple200,
-        primaryVariant = Purple700,
-        secondary = Teal200
+        primary = DefaultGreyish,
+        primaryVariant = DefaultLightGreyish,
+        secondary = DefaultLightGreyish
 )
 
 private val LightColorPalette = lightColors(
-        primary = Purple500,
-        primaryVariant = Purple700,
-        secondary = Teal200
+        primary = DefaultGreyish,
+        primaryVariant = DefaultLightGreyish,
+        secondary = DefaultLightGreyish
 
         /* Other default colors to override
     background = Color.White,
@@ -29,6 +29,8 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun QuizcenterTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    //val context = LocalContext.current as Activity
+    //context.window.statusBarColor = Color.Gray.toArgb()
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
