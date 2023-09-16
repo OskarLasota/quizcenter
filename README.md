@@ -11,3 +11,9 @@ This is a project motivated by learning new technologies using best practices.
 
 Viewers Beware!! First time using jetpack compose  :)
 
+Order of work TBC : 
+Create the actual quiz object and UI to display on homepage
+Add functionality to create new quiz screen
+Add search functionality
+Create my account view
+
