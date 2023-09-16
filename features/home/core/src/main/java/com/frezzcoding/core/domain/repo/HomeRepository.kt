@@ -1,7 +1,7 @@
 package com.frezzcoding.core.domain.repo
 
-import com.frezzcoding.network.AdModel
+import com.frezzcoding.network.ads.AdDto
 
 interface HomeRepository {
-    fun getAds(): List<AdModel>
+    fun getAds(): List<AdDto>
 }
