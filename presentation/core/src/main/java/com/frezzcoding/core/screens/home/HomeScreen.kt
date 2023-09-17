@@ -7,6 +7,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.frezzcoding.ui.components.HomeFeed
 import com.frezzcoding.ui.screens.Screens
+import kotlinx.coroutines.flow.merge
 
 
 @Composable
@@ -15,10 +16,8 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
-
-
-    HomeFeed(items = state.ads) { onAdPressed(navController) }
-
+    val displayList: List<Any> = state.ads + state.quizzes
+    HomeFeed(items = displayList) { onAdPressed(navController) }
 }
 
 fun onAdPressed(navController: NavController) {
