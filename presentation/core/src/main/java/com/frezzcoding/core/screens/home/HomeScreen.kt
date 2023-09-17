@@ -17,7 +17,7 @@ fun HomeScreen(
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
 
 
-    HomeFeed(ads = state.ads) { onAdPressed(navController) }
+    HomeFeed(items = state.ads) { onAdPressed(navController) }
 
 }
 

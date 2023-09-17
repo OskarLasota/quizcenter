@@ -1,10 +1,10 @@
 package com.frezzcoding.network
 
 import com.frezzcoding.network.ads.AdDto
-import com.frezzcoding.network.quiz.QuizAnswer
+import com.frezzcoding.network.quiz.QuizAnswerDto
 import com.frezzcoding.network.quiz.QuizContentDto
 import com.frezzcoding.network.quiz.QuizDto
-import com.frezzcoding.network.quiz.QuizQuestion
+import com.frezzcoding.network.quiz.QuizQuestionDto
 
 object SampleData {
 
@@ -43,11 +43,11 @@ object SampleData {
             id = 0, userId = 0, statistics = null, content =
             QuizContentDto(
                 id = 0, description = "this is a sample quiz", content = mapOf(
-                    QuizQuestion("is it sample A?") to listOf(
-                        QuizAnswer("A", true),
-                        QuizAnswer("B", false),
-                        QuizAnswer("C", false),
-                        QuizAnswer("D", false)
+                    QuizQuestionDto("is it sample A?") to listOf(
+                        QuizAnswerDto("A", true),
+                        QuizAnswerDto("B", false),
+                        QuizAnswerDto("C", false),
+                        QuizAnswerDto("D", false)
                     )
                 )
             )
