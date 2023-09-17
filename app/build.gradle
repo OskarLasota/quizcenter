@@ -70,7 +70,7 @@ dependencies {
             project(":presentation:ui"),
             project(':presentation:core'),
             project(":domain"),
-            project(':features:home:core',)
+            project(':features:home:contract',)
 
     )
 }
