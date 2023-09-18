@@ -1,6 +1,7 @@
 package com.frezzcoding.core.module
 
-import com.frezzcoding.HomeViewModelFactoryProvider
+import com.frezzcoding.HomeViewModel
+import com.frezzcoding.core.ui.HomeViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -11,6 +12,5 @@ import dagger.hilt.components.SingletonComponent
 abstract class HomeViewModelModule {
 
     @Binds
-    abstract fun bindsHomeViewModelFactory(impl: HomeViewModelProviderFactoryImpl): HomeViewModelFactoryProvider
-
+    abstract fun bindsHomeViewModel(impl: HomeViewModelImpl): HomeViewModel
 }

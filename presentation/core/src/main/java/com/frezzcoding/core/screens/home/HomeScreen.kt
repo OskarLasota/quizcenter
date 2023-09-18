@@ -14,7 +14,7 @@ import com.frezzcoding.ui.screens.Screens
 @Composable
 fun HomeScreen(
     navController: NavController,
-    homeViewModel: HomeViewModel = hiltViewModel()
+    homeViewModel: HomeViewModel
 ) {
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
     val displayList: List<Any> = state.ads + state.quizzes

@@ -16,66 +16,75 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.screens.home.HomeScreen
 import com.frezzcoding.core.screens.newquiz.NewQuizScreen
 import com.frezzcoding.core.screens.profile.ProfileScreen
 import com.frezzcoding.core.screens.search.SearchScreen
 import com.frezzcoding.ui.components.BottomNavigationBar
 import com.frezzcoding.ui.screens.Screens
+import javax.inject.Inject
 
-
-@Composable
-fun NavigationGraph(
-    navController: NavHostController,
-    startDestination: String,
-    scrollState: LazyListState
+class AppNavigator @Inject constructor(
+    private val homeViewModel: HomeViewModel
 ) {
-    NavHost(navController = navController, startDestination = startDestination) {
-        composable(route = Screens.HomeFeed.route) {
-            HomeScreen(navController = navController)
-        }
-        composable(route = Screens.NewQuizScreens.route) {
-            NewQuizScreen(navController = navController)
-        }
-        composable(route = Screens.SearchScreens.route) {
-            SearchScreen(navController = navController)
-        }
-        composable(route = Screens.ProfileScreen.route) {
-            ProfileScreen(navController = navController)
+
+    @Composable
+    fun NavigationGraph(
+        navController: NavHostController,
+        startDestination: String,
+        scrollState: LazyListState
+    ) {
+
+        NavHost(navController = navController, startDestination = startDestination) {
+            composable(route = Screens.HomeFeed.route) {
+                HomeScreen(navController = navController, homeViewModel)
+            }
+            composable(route = Screens.NewQuizScreens.route) {
+                NewQuizScreen(navController = navController)
+            }
+            composable(route = Screens.SearchScreens.route) {
+                SearchScreen(navController = navController)
+            }
+            composable(route = Screens.ProfileScreen.route) {
+                ProfileScreen(navController = navController)
+            }
         }
     }
-}
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@Composable
-fun SetupNavigation(startDestination: String) {
-    val navController = rememberNavController()
 
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+    @Composable
+    fun SetupNavigation(startDestination: String) {
+        val navController = rememberNavController()
 
-    val scrollState = rememberLazyListState()
-    val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
 
-    Scaffold(bottomBar = {
-        if ((currentRoute == Screens.HomeFeed.route && state)) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+        val scrollState = rememberLazyListState()
+        val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
+
+        Scaffold(bottomBar = {
+            if ((currentRoute == Screens.HomeFeed.route && state)) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        BottomNavigationBar(navController = navController)
+                    }
+                }
+            } else {
                 Box(contentAlignment = Alignment.Center) {
                     BottomNavigationBar(navController = navController)
                 }
             }
-        } else {
-            Box(contentAlignment = Alignment.Center) {
-                BottomNavigationBar(navController = navController)
-            }
+        }) {
+            NavigationGraph(
+                navController = navController,
+                startDestination = startDestination,
+                scrollState = scrollState
+            )
         }
-    }) {
-        NavigationGraph(
-            navController = navController,
-            startDestination = startDestination,
-            scrollState = scrollState
-        )
     }
+
 }

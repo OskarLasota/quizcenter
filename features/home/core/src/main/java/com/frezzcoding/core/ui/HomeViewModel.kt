@@ -1,5 +1,6 @@
 package com.frezzcoding.core.ui
 
+import androidx.lifecycle.ViewModel
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.domain.usecase.FetchAdsUseCase
@@ -10,11 +11,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-@HiltViewModel
 class HomeViewModelImpl @Inject constructor(
     fetchAdsUseCase: FetchAdsUseCase,
     fetchQuizzesUseCase: FetchQuizzesUseCase
-) : HomeViewModel() {
+) : HomeViewModel, ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
 
