@@ -5,9 +5,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.frezzcoding.HomeUiState
+import com.frezzcoding.HomeViewModel
 import com.frezzcoding.ui.components.HomeFeed
 import com.frezzcoding.ui.screens.Screens
-import kotlinx.coroutines.flow.merge
 
 
 @Composable

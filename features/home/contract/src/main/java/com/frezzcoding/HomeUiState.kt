@@ -1,4 +1,4 @@
-package com.frezzcoding.core.screens.home
+package com.frezzcoding
 
 import com.frezzcoding.domain.AdDetails
 import com.frezzcoding.domain.QuizDetails
