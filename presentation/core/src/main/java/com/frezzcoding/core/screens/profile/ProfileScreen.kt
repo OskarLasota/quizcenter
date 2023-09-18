@@ -3,12 +3,12 @@ package com.frezzcoding.core.screens.profile
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.frezzcoding.core.ui.HomeViewModel
+import com.frezzcoding.HomeViewModel
 
 @Composable
 fun ProfileScreen(
     navController: NavController,
-    homeViewModel: com.frezzcoding.core.ui.HomeViewModel = hiltViewModel()
+    homeViewModel: HomeViewModel = hiltViewModel()
 ) {
 
 }
