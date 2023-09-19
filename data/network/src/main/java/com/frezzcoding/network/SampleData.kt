@@ -5,6 +5,7 @@ import com.frezzcoding.network.quiz.QuizAnswerDto
 import com.frezzcoding.network.quiz.QuizContentDto
 import com.frezzcoding.network.quiz.QuizDto
 import com.frezzcoding.network.quiz.QuizQuestionDto
+import com.frezzcoding.network.quiz.QuizStatsDto
 
 object SampleData {
 
@@ -40,7 +41,7 @@ object SampleData {
 
     private val quizContent
         get() = QuizDto(
-            id = 0, userId = 0, statistics = null, content =
+            id = 0, userId = 0, statistics = QuizStatsDto(), content =
             QuizContentDto(
                 id = 0, description = "this is a sample quiz", content = mapOf(
                     QuizQuestionDto("is it sample A?") to listOf(
