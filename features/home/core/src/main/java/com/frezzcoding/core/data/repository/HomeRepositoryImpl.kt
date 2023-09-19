@@ -2,15 +2,15 @@ package com.frezzcoding.core.data.repository
 
 import com.frezzcoding.HomeRepository
 import com.frezzcoding.core.AdMapper
+import com.frezzcoding.core.domain.QuizMapper
 import com.frezzcoding.domain.AdDetails
 import com.frezzcoding.domain.QuizDetails
-import com.frezzcoding.network.ads.AdDto
 import com.frezzcoding.network.SampleData
-import com.frezzcoding.network.quiz.QuizDto
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
-    private val adMapper: AdMapper
+    private val adMapper: AdMapper,
+    private val quizMapper: QuizMapper
 ) : HomeRepository {
 
     override fun getAds(): List<AdDetails> {
@@ -18,8 +18,7 @@ class HomeRepositoryImpl @Inject constructor(
     }
 
     override fun getQuizzes(): List<QuizDetails> {
-        //return SampleData.quizSample
-        return emptyList()
+        return SampleData.quizSample.mapNotNull(quizMapper::apply)
     }
 
 

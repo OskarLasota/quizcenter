@@ -5,5 +5,5 @@ import com.frezzcoding.domain.QuizDetails
 
 interface HomeRepository {
     fun getAds(): List<AdDetails>
-    fun getQuizzes(): List<QuizDetails?>
+    fun getQuizzes(): List<QuizDetails>
 }
