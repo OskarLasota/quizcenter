@@ -2,7 +2,7 @@ package com.frezzcoding.domain
 
 data class QuizDetails(
     val id: Int,
-    val description: String?,
+    val description: String,
     val content: Map<QuizQuestion, List<QuizAnswer>>
 )
 
