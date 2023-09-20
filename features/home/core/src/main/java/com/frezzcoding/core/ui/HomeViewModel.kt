@@ -25,13 +25,11 @@ class HomeViewModelImpl @Inject constructor(
 
     init {
         //combine the flows of both use cases
-        fetchAdsUseCase.invoke()
-            .combine(fetchQuizzesUseCase.invoke()) { ads, quizzes ->
-                HomeUiState(ads, quizzes)
-            }.onEach { newState ->
-                _uiState.value = newState
-            }
-            .launchIn(viewModelScope)
+        combine(fetchQuizzesUseCase.invoke(), fetchAdsUseCase.invoke()) { quizzes, ads ->
+            HomeUiState(ads, quizzes)
+        }.onEach { newState ->
+            _uiState.value = newState
+        }.launchIn(viewModelScope)
     }
 
 }
