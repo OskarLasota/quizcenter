@@ -2,18 +2,21 @@
 
 Social media inspired app that will allow users to post their own quizes.
 
-Users will be able to view the quizes of the accounts that they follow, on their home screen. 
 
-Users will be able to interact, react, comment and complete the quizes.
+# Tech Stack : 
+ - Jetpack Compose
+ - Modularisation
+ - Coroutines / Flows
+ - MVVM
+ - Unit / UI Tests
+ - Clean Architecture
 
 
-This is a project motivated by learning new technologies using best practices.
-
-Viewers Beware!! First time using jetpack compose  :)
-
-Order of work TBC : 
-Create the actual quiz object and UI to display on homepage
-Add functionality to create new quiz screen
-Add search functionality
-Create my account view
+Order of work TODO list : 
+1. Create a kanban board for project management
+2. Create the actual quiz item view that will be displayed on homepage
+3. Create the actual ad item view that will be displayed on homepage
+4. Create new screen to post new quiz
+5. Create my account
+6. Create search functionality
 
