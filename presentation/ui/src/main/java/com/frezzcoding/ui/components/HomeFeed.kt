@@ -5,9 +5,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import com.frezzcoding.domain.AdDetails
 import com.frezzcoding.domain.QuizDetails
+import kotlinx.collections.immutable.ImmutableList
 
 @Composable
-fun HomeFeed(items: List<Any>, onItemPressed: () -> Unit) {
+fun HomeFeed(items: ImmutableList<Any>, onItemPressed: () -> Unit) {
     LazyColumn {
         items(items) { item ->
             when (item) {
