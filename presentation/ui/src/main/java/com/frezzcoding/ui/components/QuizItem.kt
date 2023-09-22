@@ -47,7 +47,7 @@ fun NameAndUsername(quiz: QuizDetails) {
     )
     {
         Text(
-            text = "test name @tester", // todo add this to domain ad model
+            text = "test name @tester", // todo add this to domain quiz model
             fontFamily = FontFamily.Monospace,
             maxLines = 1,
             modifier = Modifier
