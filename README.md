@@ -4,12 +4,12 @@ Social media inspired app that will allow users to post their own quizes.
 
 
 # Tech Stack : 
- - Jetpack Compose
- - Modularisation
- - Coroutines / Flows
- - MVVM
- - Unit / UI Tests
- - Clean Architecture
+ - Jetpack Compose 🤖
+ - Modularisation 📚
+ - Coroutines / Flows 🚰
+ - MVVM 📳
+ - Unit / UI Tests ⚠️
+ - Clean Architecture 🪥
 
 
 Order of work TODO list : 
