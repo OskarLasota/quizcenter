@@ -2,6 +2,7 @@ package com.frezzcoding.core.domain
 
 import com.frezzcoding.domain.models.quiz.QuizAnswer
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.domain.models.quiz.QuizOwner
 import com.frezzcoding.domain.models.quiz.QuizQuestion
 import com.frezzcoding.network.quiz.QuizDto
 import javax.inject.Inject
@@ -12,6 +13,7 @@ class QuizMapper @Inject constructor() {
         if (quiz.id == null) return null
         if (quiz.userId == null) return null
         if (quiz.content.description == null) return null
+
         return QuizDetails(
             id = quiz.id!!,
             description = quiz.content.description!!,
@@ -22,7 +24,8 @@ class QuizMapper @Inject constructor() {
                         isCorrect = it.isCorrect
                     )
                 }
-            }.toMap()
+            }.toMap(),
+            owner = QuizOwner(name = quiz.owner.name) // todo this mapping could probably be an extension?
         )
     }
 
