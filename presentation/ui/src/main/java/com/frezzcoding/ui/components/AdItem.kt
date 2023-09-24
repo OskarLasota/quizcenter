@@ -48,7 +48,7 @@ fun NameAndUsername(ad: AdDetails) {
     )
     {
         Text(
-            text = "test name @tester", // todo add this to domain ad model
+            text = ad.adOwner.name,
             color = Color.White,
             fontFamily = FontFamily.Monospace,
             maxLines = 1,

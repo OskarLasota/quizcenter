@@ -1,6 +1,7 @@
 package com.frezzcoding.network
 
 import com.frezzcoding.network.ads.AdDto
+import com.frezzcoding.network.ads.AdOwnerDto
 import com.frezzcoding.network.quiz.QuizAnswerDto
 import com.frezzcoding.network.quiz.QuizContentDto
 import com.frezzcoding.network.quiz.QuizDto
@@ -13,10 +14,11 @@ object SampleData {
         AdDto(
             id = 534,
             position = 0,
-            text = "test 1, test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1"
+            text = "test 1, test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1",
+            AdOwnerDto("Mazda")
         ),
-        AdDto(id = 534, position = 1, text = "test 2"),
-        AdDto(id = 534, position = 2, text = "test 3"),
+        AdDto(id = 534, position = 1, text = "test 2", AdOwnerDto("Space X")),
+        AdDto(id = 534, position = 2, text = "test 3", AdOwnerDto("Tesla")),
     )
 
 
