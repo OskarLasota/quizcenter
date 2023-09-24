@@ -5,6 +5,7 @@ import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.domain.models.quiz.QuizOwner
 import com.frezzcoding.domain.models.quiz.QuizQuestion
 import com.frezzcoding.network.quiz.QuizDto
+import com.frezzcoding.network.quiz.QuizOwnerDto
 import javax.inject.Inject
 
 class QuizMapper @Inject constructor() {
@@ -25,8 +26,14 @@ class QuizMapper @Inject constructor() {
                     )
                 }
             }.toMap(),
-            owner = QuizOwner(name = quiz.owner.name) // todo this mapping could probably be an extension?
+            owner = quiz.owner.toModel()
         )
     }
 
+}
+
+internal fun QuizOwnerDto.toModel(): QuizOwner {
+    return QuizOwner(
+        name = this.name
+    )
 }
