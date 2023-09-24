@@ -17,7 +17,7 @@ object SampleData {
             text = "test 1, test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1",
             AdOwnerDto("Mazda")
         ),
-        AdDto(id = 534, position = 1, text = "test 2", AdOwnerDto("Space X")),
+        AdDto(id = 534, position = 1, text = "test 2", AdOwnerDto("SpaceX")),
         AdDto(id = 534, position = 2, text = "test 3", AdOwnerDto("Tesla")),
     )
 

@@ -48,7 +48,7 @@ fun NameAndUsername(ad: AdDetails) {
     )
     {
         Text(
-            text = ad.adOwner.name,
+            text = "@${ad.adOwner.name}",
             color = Color.White,
             fontFamily = FontFamily.Monospace,
             maxLines = 1,
