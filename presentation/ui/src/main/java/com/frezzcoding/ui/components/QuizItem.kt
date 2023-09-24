@@ -61,6 +61,7 @@ fun UserAvatar(quiz: QuizDetails) {
     // User Avatar
     Box(
         modifier = Modifier
+            .padding(top = 5.dp)
             .size(40.dp) // Adjust the size as needed
             .background(MaterialTheme.colors.secondary) // Background color for the avatar
             .clip(shape = CircleShape) // Clip the avatar to a circle shape
