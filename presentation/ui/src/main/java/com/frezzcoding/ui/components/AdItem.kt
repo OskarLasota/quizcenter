@@ -14,7 +14,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.frezzcoding.domain.AdDetails
@@ -42,12 +44,12 @@ fun AdItem(ad: AdDetails, onPressed: () -> Unit) {
 fun NameAndUsername(ad: AdDetails) {
     Box(
         modifier = Modifier
-            .background(MaterialTheme.colors.background)
             .fillMaxWidth()
     )
     {
         Text(
             text = "test name @tester", // todo add this to domain ad model
+            color = Color.White,
             fontFamily = FontFamily.Monospace,
             maxLines = 1,
             modifier = Modifier
@@ -63,12 +65,11 @@ fun UserAvatar(ad: AdDetails) {
         modifier = Modifier
             .padding(top = 5.dp)
             .size(40.dp) // Adjust the size as needed
-            .background(MaterialTheme.colors.secondary) // Background color for the avatar
             .clip(shape = CircleShape) // Clip the avatar to a circle shape
     ) {
         AsyncImage(
             contentDescription = null,
-            model = "https://loremflickr.com/320/240"
+            model = "https://loremflickr.com/320/320/dogs"
         )
     }
 }
@@ -78,6 +79,7 @@ fun DescriptionAndImage(ad: AdDetails) {
     Box {
         Text(
             text = ad.text,
+            color = Color.White,
             fontFamily = FontFamily.Monospace,
             modifier = Modifier.padding(bottom = 8.dp)
         )

@@ -11,23 +11,14 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorPalette = darkColors(
         primary = DefaultGreyish,
-        primaryVariant = DefaultLightGreyish,
-        secondary = DefaultLightGreyish
+        primaryVariant = DefaultLight,
+        secondary = DefaultLight
 )
 
 private val LightColorPalette = lightColors(
         primary = DefaultGreyish,
-        primaryVariant = DefaultLightGreyish,
-        secondary = DefaultLightGreyish
-
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+        primaryVariant = DefaultLight,
+        secondary = DefaultLight
 )
 
 @Composable

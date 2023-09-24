@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -50,12 +51,12 @@ fun QuizItem(quiz: QuizDetails, onPressed: () -> Unit) {
 fun NameAndUsername(quiz: QuizDetails) {
     Box(
         modifier = Modifier
-            .background(MaterialTheme.colors.background)
             .fillMaxWidth()
     )
     {
         Text(
             text = "test name @tester", // todo add this to domain quiz model
+            color = Color.White,
             fontFamily = FontFamily.Monospace,
             maxLines = 1,
             modifier = Modifier
@@ -71,13 +72,12 @@ fun UserAvatar(quiz: QuizDetails) {
         modifier = Modifier
             .padding(top = 5.dp)
             .size(40.dp) // Adjust the size as needed
-            .background(MaterialTheme.colors.secondary) // Background color for the avatar
             .clip(shape = CircleShape) // Clip the avatar to a circle shape
     ) {
         // Can load the user's avatar image here
         AsyncImage(
             contentDescription = null,
-            model = "https://loremflickr.com/320/240"
+            model = "https://loremflickr.com/320/320/dogs"
         )
     }
 }
@@ -87,6 +87,7 @@ fun DescriptionAndImage(quiz: QuizDetails) {
     Box {
         Text(
             text = quiz.description,
+            color = Color.White,
             fontFamily = FontFamily.Monospace,
             modifier = Modifier.padding(bottom = 8.dp)
         )
