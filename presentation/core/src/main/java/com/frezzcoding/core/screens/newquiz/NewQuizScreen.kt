@@ -8,7 +8,7 @@ import com.frezzcoding.HomeViewModel
 @Composable
 fun NewQuizScreen(
     navController: NavController,
-    homeViewModel: HomeViewModel = hiltViewModel()
+    homeViewModel: HomeViewModel
 ) {
 
 }

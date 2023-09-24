@@ -41,13 +41,13 @@ class AppNavigator @Inject constructor(
                 HomeScreen(navController = navController, homeViewModel)
             }
             composable(route = Screens.NewQuizScreens.route) {
-                NewQuizScreen(navController = navController)
+                NewQuizScreen(navController = navController, homeViewModel)
             }
             composable(route = Screens.SearchScreens.route) {
-                SearchScreen(navController = navController)
+                SearchScreen(navController = navController, homeViewModel)
             }
             composable(route = Screens.ProfileScreen.route) {
-                ProfileScreen(navController = navController)
+                ProfileScreen(navController = navController, homeViewModel)
             }
         }
     }
