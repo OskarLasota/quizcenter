@@ -21,7 +21,8 @@ dependencies {
             deps.androidx.activityCompose,
             deps.androidx.hiltNavigationCompose,
             deps.androidx.jetbrainsCollections,
-            deps.coroutines
+            deps.coroutines,
+            deps.coil
     )
     testImplementation(
             test.androidTestCore,

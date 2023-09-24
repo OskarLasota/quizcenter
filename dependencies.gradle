@@ -47,8 +47,10 @@ allprojects {
                 ],
                 coroutines  : [
                         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinXcoroutines"
+                ],
+                coil        : [
+                        "io.coil-kt:coil-compose:2.4.0"
                 ]
-
         ]
 
         test = [

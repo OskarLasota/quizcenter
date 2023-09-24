@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.frezzcoding.domain.AdDetails
 
 @Composable
@@ -65,7 +66,10 @@ fun UserAvatar(ad: AdDetails) {
             .background(MaterialTheme.colors.secondary) // Background color for the avatar
             .clip(shape = CircleShape) // Clip the avatar to a circle shape
     ) {
-        // Can load the user's avatar image here
+        AsyncImage(
+            contentDescription = null,
+            model = "https://loremflickr.com/320/240"
+        )
     }
 }
 
