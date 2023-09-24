@@ -1,7 +1,7 @@
 package com.frezzcoding.core.domain.usecase
 
 import com.frezzcoding.HomeRepository
-import com.frezzcoding.domain.AdDetails
+import com.frezzcoding.domain.models.ad.AdDetails
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

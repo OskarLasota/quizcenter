@@ -6,9 +6,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import com.frezzcoding.domain.AdDetails
-import com.frezzcoding.domain.QuizDetails
+import com.frezzcoding.domain.models.ad.AdDetails
+import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable

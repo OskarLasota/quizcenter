@@ -3,8 +3,8 @@ package com.frezzcoding.core.data.repository
 import com.frezzcoding.HomeRepository
 import com.frezzcoding.core.AdMapper
 import com.frezzcoding.core.domain.QuizMapper
-import com.frezzcoding.domain.AdDetails
-import com.frezzcoding.domain.QuizDetails
+import com.frezzcoding.domain.models.ad.AdDetails
+import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.network.SampleData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

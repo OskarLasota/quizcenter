@@ -1,7 +1,7 @@
 package com.frezzcoding.core
 
-import com.frezzcoding.domain.AdDetails
-import com.frezzcoding.domain.AdOwner
+import com.frezzcoding.domain.models.ad.AdDetails
+import com.frezzcoding.domain.models.ad.AdOwner
 import com.frezzcoding.network.ads.AdDto
 import javax.inject.Inject
 

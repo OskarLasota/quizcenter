@@ -1,8 +1,8 @@
 package com.frezzcoding.core.domain
 
-import com.frezzcoding.domain.QuizAnswer
-import com.frezzcoding.domain.QuizDetails
-import com.frezzcoding.domain.QuizQuestion
+import com.frezzcoding.domain.models.quiz.QuizAnswer
+import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.domain.models.quiz.QuizQuestion
 import com.frezzcoding.network.quiz.QuizDto
 import javax.inject.Inject
 

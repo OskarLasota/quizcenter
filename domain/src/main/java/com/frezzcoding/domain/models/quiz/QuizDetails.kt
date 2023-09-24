@@ -1,9 +1,10 @@
-package com.frezzcoding.domain
+package com.frezzcoding.domain.models.quiz
 
 data class QuizDetails(
     val id: Int,
     val description: String,
-    val content: Map<QuizQuestion, List<QuizAnswer>>
+    val content: Map<QuizQuestion, List<QuizAnswer>>,
+    val owner: QuizOwner
 )
 
 data class QuizAnswer(
