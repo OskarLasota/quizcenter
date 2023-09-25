@@ -1,4 +1,4 @@
-package com.frezzcoding.core
+package com.frezzcoding.core.mappers
 
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.ad.AdOwner

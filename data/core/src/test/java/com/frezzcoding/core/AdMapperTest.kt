@@ -1,5 +1,6 @@
 package com.frezzcoding.core
 
+import com.frezzcoding.core.mappers.AdMapper
 import org.junit.Test
 
 class AdMapperTest {

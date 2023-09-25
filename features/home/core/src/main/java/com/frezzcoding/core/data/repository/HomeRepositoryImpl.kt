@@ -1,8 +1,8 @@
 package com.frezzcoding.core.data.repository
 
 import com.frezzcoding.HomeRepository
-import com.frezzcoding.core.AdMapper
-import com.frezzcoding.core.QuizMapper
+import com.frezzcoding.core.mappers.AdMapper
+import com.frezzcoding.core.mappers.QuizMapper
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.network.SampleData

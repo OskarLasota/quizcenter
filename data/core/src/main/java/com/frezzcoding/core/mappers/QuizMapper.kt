@@ -1,4 +1,4 @@
-package com.frezzcoding.core
+package com.frezzcoding.core.mappers
 
 import com.frezzcoding.domain.models.quiz.QuizAnswer
 import com.frezzcoding.domain.models.quiz.QuizDetails
