@@ -1,5 +1,6 @@
-package com.frezzcoding.network
+package com.frezzcoding.core
 
+import com.frezzcoding.core.mappers.QuizMapper
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
