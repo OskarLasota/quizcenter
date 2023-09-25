@@ -5,6 +5,7 @@ import com.frezzcoding.network.ads.AdOwnerDto
 import com.frezzcoding.network.quiz.QuizAnswerDto
 import com.frezzcoding.network.quiz.QuizContentDto
 import com.frezzcoding.network.quiz.QuizDto
+import com.frezzcoding.network.quiz.QuizOwnerDto
 import com.frezzcoding.network.quiz.QuizQuestionDto
 import com.frezzcoding.network.quiz.QuizStatsDto
 
@@ -58,7 +59,8 @@ object SampleData {
                         QuizAnswerDto("D", false)
                     )
                 )
-            )
+            ),
+            owner = QuizOwnerDto(name = "owner")
         )
 
 }
