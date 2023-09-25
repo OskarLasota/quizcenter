@@ -1,4 +1,4 @@
-package com.frezzcoding.core
+package com.frezzcoding.network
 
 import com.frezzcoding.domain.models.quiz.QuizAnswer
 import com.frezzcoding.domain.models.quiz.QuizDetails
