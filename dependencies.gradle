@@ -16,6 +16,7 @@ allprojects {
         kotlinXcoroutines = '1.6.4'
         mockito = '2.2.0'
         mockk = '1.13.2'
+        room = '2.5.2'
 
 
         deps = [
@@ -35,7 +36,7 @@ allprojects {
                         lifecycleViewmodel   : "androidx.lifecycle:lifecycle-viewmodel-compose:$androidXlifecycle",
                         activityCompose      : "androidx.activity:activity-compose:1.7.1",
                         hiltNavigationCompose: "androidx.hilt:hilt-navigation-compose:$hiltCompiler",
-                        foundation: 'androidx.compose.foundation:foundation:1.0.0-rc01'
+                        foundation           : 'androidx.compose.foundation:foundation:1.0.0-rc01'
 
                 ],
                 hilt        : [
@@ -50,6 +51,10 @@ allprojects {
                 ],
                 coil        : [
                         "io.coil-kt:coil-compose:2.4.0"
+                ],
+                room        : [
+                        runtime : "androidx.room:room-runtime:$room",
+                        compiler: "androidx.room:room-compiler:$room",
                 ]
         ]
 

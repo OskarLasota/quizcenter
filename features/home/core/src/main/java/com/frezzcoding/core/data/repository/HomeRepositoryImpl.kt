@@ -1,6 +1,7 @@
 package com.frezzcoding.core.data.repository
 
 import com.frezzcoding.HomeRepository
+import com.frezzcoding.core.data.db.FeedDao
 import com.frezzcoding.core.mappers.AdMapper
 import com.frezzcoding.core.mappers.QuizMapper
 import com.frezzcoding.domain.models.ad.AdDetails
@@ -11,6 +12,7 @@ import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
+    private val dataSource: FeedDao,
     private val adMapper: AdMapper,
     private val quizMapper: QuizMapper
 ) : HomeRepository {
