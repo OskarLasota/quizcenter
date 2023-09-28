@@ -20,7 +20,8 @@ dependencies {
             deps.androidx.lifecycleViewmodel,
             deps.androidx.activityCompose,
             deps.androidx.hiltNavigationCompose,
-            deps.coroutines
+            deps.coroutines,
+            deps.room.runtime,
     )
     testImplementation(
             test.androidTestCore,
@@ -30,9 +31,12 @@ dependencies {
             deps.debugCompose
     )
     kapt(
-            deps.kaptHilt
+            deps.kaptHilt,
+            deps.room.compiler
     )
-
+    annotationProcessor(
+            deps.room.compiler
+    )
     implementation(
             project(":data:network"),
             project(":domain")

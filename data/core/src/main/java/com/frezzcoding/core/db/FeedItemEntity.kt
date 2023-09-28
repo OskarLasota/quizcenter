@@ -1,4 +1,4 @@
-package com.frezzcoding.core.data.db
+package com.frezzcoding.core.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

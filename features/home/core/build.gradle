@@ -21,7 +21,6 @@ dependencies {
             deps.androidx.activityCompose,
             deps.androidx.hiltNavigationCompose,
             deps.coroutines,
-            deps.room.runtime,
             project(":domain"),
             project(":data:network"),
             project(":data:core"),
@@ -36,9 +35,5 @@ dependencies {
     )
     kapt(
             deps.kaptHilt,
-            deps.room.compiler
-    )
-    annotationProcessor(
-            deps.room.compiler
     )
 }

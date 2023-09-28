@@ -1,4 +1,4 @@
-package com.frezzcoding.core.data.db
+package com.frezzcoding.core.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
