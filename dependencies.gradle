@@ -55,6 +55,7 @@ allprojects {
                 room        : [
                         runtime : "androidx.room:room-runtime:$room",
                         compiler: "androidx.room:room-compiler:$room",
+                        ktx     : "androidx.room:room-ktx:$room"
                 ]
         ]
 

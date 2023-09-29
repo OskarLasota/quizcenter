@@ -32,7 +32,7 @@ fun AdItem(ad: AdDetails, onPressed: () -> Unit) {
         Column {
             NameAndUsername(ad)
             Spacer(modifier = Modifier.size(1.dp))
-            DescriptionAndImage(ad)
+            FeedContent(ad)
             Spacer(modifier = Modifier.size(10.dp))
             AdActions(ad)
         }
@@ -74,7 +74,7 @@ fun UserAvatar(ad: AdDetails) {
 }
 
 @Composable
-fun DescriptionAndImage(ad: AdDetails) {
+fun FeedContent(ad: AdDetails) {
     Box {
         Text(
             text = ad.text,

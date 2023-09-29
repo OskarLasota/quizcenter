@@ -32,9 +32,9 @@ fun QuizItem(quiz: QuizDetails, onPressed: () -> Unit) {
         Column {
             NameAndUsername(quiz)
             Spacer(modifier = Modifier.size(1.dp))
-            DescriptionAndImage(quiz)
+            FeedContent(quiz)
             Spacer(modifier = Modifier.size(10.dp))
-            AdActions(quiz)
+            QuizActions(quiz)
         }
     }
 }
@@ -76,7 +76,7 @@ fun UserAvatar(quiz: QuizDetails) {
 }
 
 @Composable
-fun DescriptionAndImage(quiz: QuizDetails) {
+fun FeedContent(quiz: QuizDetails) {
     Box {
         Text(
             text = quiz.description,
@@ -88,7 +88,7 @@ fun DescriptionAndImage(quiz: QuizDetails) {
 }
 
 @Composable
-fun AdActions(quiz: QuizDetails) {
+fun QuizActions(quiz: QuizDetails) {
     Box(
         modifier = Modifier
             .background(MaterialTheme.colors.background)

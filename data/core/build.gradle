@@ -22,6 +22,7 @@ dependencies {
             deps.androidx.hiltNavigationCompose,
             deps.coroutines,
             deps.room.runtime,
+            deps.room.ktx
     )
     testImplementation(
             test.androidTestCore,

@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
-    private val dataSource: FeedDao,
     private val adMapper: AdMapper,
     private val quizMapper: QuizMapper
 ) : HomeRepository {
