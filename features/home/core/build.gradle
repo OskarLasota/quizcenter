@@ -21,6 +21,7 @@ dependencies {
             deps.androidx.activityCompose,
             deps.androidx.hiltNavigationCompose,
             deps.coroutines,
+            deps.media3,
             project(":domain"),
             project(":data:network"),
             project(":data:core"),

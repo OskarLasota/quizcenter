@@ -24,7 +24,7 @@ object SampleData {
 
 
     val quizSample = listOf(
-        quizContent,
+        quizContent.copy(id = 4),
         quizContent,
         quizContent,
         quizContent,

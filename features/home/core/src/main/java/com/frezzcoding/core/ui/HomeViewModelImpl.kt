@@ -2,10 +2,13 @@ package com.frezzcoding.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.domain.usecase.FetchAdsUseCase
 import com.frezzcoding.core.domain.usecase.FetchQuizzesUseCase
+import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +19,8 @@ import javax.inject.Inject
 
 class HomeViewModelImpl @Inject constructor(
     fetchAdsUseCase: FetchAdsUseCase,
-    fetchQuizzesUseCase: FetchQuizzesUseCase
+    fetchQuizzesUseCase: FetchQuizzesUseCase,
+    override val player: Player
 ) : HomeViewModel, ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
@@ -30,6 +34,14 @@ class HomeViewModelImpl @Inject constructor(
         }.onEach { newState ->
             _uiState.value = newState
         }.launchIn(viewModelScope)
+
+        player.prepare()
+    }
+
+    override fun playVideo(quiz: QuizDetails?) {
+        player.setMediaItem(
+            MediaItem.fromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        )
     }
 
 }

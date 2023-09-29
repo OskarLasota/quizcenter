@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
+import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.ui.components.HomeFeed
 import com.frezzcoding.ui.screens.Screens
 import kotlinx.collections.immutable.ImmutableList
@@ -19,9 +20,10 @@ fun HomeScreen(
 ) {
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
     val displayList: ImmutableList<Any> = (state.ads + state.quizzes).toImmutableList()
-    HomeFeed(items = displayList) { onAdPressed(navController) }
+    HomeFeed(items = displayList, player = homeViewModel.player) { onAdPressed(navController, homeViewModel) }
 }
 
-fun onAdPressed(navController: NavController) {
-    navController.navigate(Screens.HomeFeed.route)
+fun onAdPressed(navController: NavController, homeViewModel: HomeViewModel) {
+    //navController.navigate(Screens.HomeFeed.route)
+    homeViewModel.playVideo(null)
 }

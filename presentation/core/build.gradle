@@ -20,6 +20,7 @@ dependencies {
             deps.androidx.activityCompose,
             deps.androidx.hiltNavigationCompose,
             deps.androidx.jetbrainsCollections,
+            deps.media3,
             deps.coroutines
     )
     testImplementation(
