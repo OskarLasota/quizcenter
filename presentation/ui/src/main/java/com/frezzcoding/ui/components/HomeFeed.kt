@@ -22,6 +22,8 @@ import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.collections.immutable.ImmutableList
 import java.lang.Math.max
 
+
+//todo need to understand if this is being composed too often and if it is built corrrectly
 @Composable
 fun HomeFeed(
     items: ImmutableList<Any>,
