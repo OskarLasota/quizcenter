@@ -26,7 +26,8 @@ class QuizMapper @Inject constructor() {
                     )
                 }
             }.toMap(),
-            owner = quiz.owner.toModel()
+            owner = quiz.owner.toModel(),
+            video = quiz.video
         )
     }
 

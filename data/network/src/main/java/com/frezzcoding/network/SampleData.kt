@@ -18,32 +18,18 @@ object SampleData {
             text = "test 1, test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1",
             AdOwnerDto("Mazda")
         ),
-        AdDto(id = 534, position = 1, text = "test 2", AdOwnerDto("SpaceX")),
-        AdDto(id = 534, position = 2, text = "test 3", AdOwnerDto("Tesla")),
+        AdDto(id = 111, position = 1, text = "test 2", AdOwnerDto("SpaceX")),
+        AdDto(id = 112, position = 2, text = "test 3", AdOwnerDto("Tesla")),
+        AdDto(id = 113, position = 2, text = "test 3", AdOwnerDto("Tesla")),
+        AdDto(id = 114, position = 2, text = "test 3", AdOwnerDto("Tesla")),
     )
 
 
     val quizSample = listOf(
-        quizContent.copy(id = 4),
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
-        quizContent,
+        quizContent.copy(id = 1, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
+        quizContent.copy(id = 2, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
+        quizContent.copy(id = 3, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
+        quizContent.copy(id = 4, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"),
     )
 
 
@@ -51,7 +37,9 @@ object SampleData {
         get() = QuizDto(
             id = 0, userId = 0, statistics = QuizStatsDto(), content =
             QuizContentDto(
-                id = 0, description = "this is a sample quiz", content = mapOf(
+                id = 0,
+                description = "this is a sample quiz this is a sample quizthis is a sample quizthis is a sample quiz",
+                content = mapOf(
                     QuizQuestionDto("is it sample A?") to listOf(
                         QuizAnswerDto("A", true),
                         QuizAnswerDto("B", false),

@@ -1,12 +1,11 @@
 package com.frezzcoding.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,13 +19,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.Lifecycle
+import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
 import com.frezzcoding.domain.models.quiz.QuizDetails
 
 @Composable
-fun QuizItem(quiz: QuizDetails, onPressed: () -> Unit, player: Player) {
+fun QuizItem(
+    quiz: QuizDetails,
+    onPressed: () -> Unit,
+    player: Player,
+    lifecycle: Lifecycle.Event
+) {
     Row(
         modifier = Modifier
             .padding(all = 10.dp)
@@ -37,7 +43,7 @@ fun QuizItem(quiz: QuizDetails, onPressed: () -> Unit, player: Player) {
         Column {
             NameAndUsername(quiz)
             Spacer(modifier = Modifier.size(1.dp))
-            FeedContent(quiz, player, onPressed)
+            FeedContent(quiz, player, lifecycle, onPressed)
             Spacer(modifier = Modifier.size(10.dp))
             QuizActions(quiz)
         }
@@ -81,7 +87,12 @@ fun UserAvatar(quiz: QuizDetails) {
 }
 
 @Composable
-fun FeedContent(quiz: QuizDetails, player: Player, onPressed: () -> Unit) {
+fun FeedContent(
+    quiz: QuizDetails,
+    player: Player,
+    lifecycle: Lifecycle.Event,
+    onPressed: () -> Unit
+) {
     Box {
         Text(
             text = quiz.description,
@@ -89,23 +100,42 @@ fun FeedContent(quiz: QuizDetails, player: Player, onPressed: () -> Unit) {
             fontFamily = FontFamily.Monospace,
             modifier = Modifier
                 .padding(bottom = 8.dp)
-                .clickable { onPressed.invoke() }
         )
-        if (quiz.id == 4) {
-            VideoPlayerItem(player)
-        }
+    }
+    Box {
+        VideoPlayerItem(quiz, player, lifecycle)
     }
 }
 
 @Composable
-fun VideoPlayerItem(player: Player) {
+fun VideoPlayerItem(quiz: QuizDetails, player: Player, lifecycle: Lifecycle.Event) {
     AndroidView(
         factory = { context ->
             PlayerView(context).also {
-                it.player = player
+                it.player = player.apply {
+                    player.setMediaItem(
+                        MediaItem.fromUri(quiz.video!!)
+                    )
+                }
             }
         },
-        modifier = Modifier.fillMaxSize()
+        update = {
+            when (lifecycle) {
+                Lifecycle.Event.ON_PAUSE -> {
+                    it.onPause()
+                    //it.player?.pause()
+                }
+
+                Lifecycle.Event.ON_RESUME -> {
+                    it.onResume()
+                }
+
+                else -> Unit
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(16 / 9f)
     )
 }
 
