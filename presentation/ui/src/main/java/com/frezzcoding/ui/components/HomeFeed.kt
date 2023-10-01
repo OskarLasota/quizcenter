@@ -20,7 +20,7 @@ import com.frezzcoding.domain.models.FeedItem
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.collections.immutable.ImmutableList
-import java.lang.Math.max
+import kotlin.math.max
 
 
 //todo need to understand if this is being composed too often and if it is built corrrectly
