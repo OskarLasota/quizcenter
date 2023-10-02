@@ -17,7 +17,8 @@ class AdMapper @Inject constructor() {
             id = adModel.id!!,
             position = adModel.position!!,
             text = adModel.text!!,
-            adOwner = AdOwner(name = adModel.adOwner!!.name)
+            adOwner = AdOwner(name = adModel.adOwner!!.name),
+            video = adModel.video
         )
     }
 

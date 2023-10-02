@@ -10,7 +10,8 @@ val correctAdDto
         id = 0,
         position = 0,
         text = "ad",
-        adOwner = correctAdOwnerDto
+        adOwner = correctAdOwnerDto,
+        video = null
     )
 
 
@@ -24,5 +25,6 @@ val correctAdDomainModel
         id = 0,
         position = 0,
         text = "ad",
-        adOwner = AdOwner(name = "ad owner")
+        adOwner = AdOwner(name = "ad owner"),
+        video = null
     )

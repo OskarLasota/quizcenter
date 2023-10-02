@@ -6,5 +6,6 @@ data class AdDetails(
     val id: Int,
     val position: Int,
     val text: String,
-    val adOwner: AdOwner
+    val adOwner: AdOwner,
+    val video: String?
 ) : FeedItem

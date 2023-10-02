@@ -16,12 +16,13 @@ object SampleData {
             id = 534,
             position = 0,
             text = "test 1, test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1",
-            AdOwnerDto("Mazda")
+            adOwner = AdOwnerDto("Mazda"),
+            video = null
         ),
-        AdDto(id = 111, position = 1, text = "test 2", AdOwnerDto("SpaceX")),
-        AdDto(id = 112, position = 2, text = "test 3", AdOwnerDto("Tesla")),
-        AdDto(id = 113, position = 2, text = "test 3", AdOwnerDto("Tesla")),
-        AdDto(id = 114, position = 2, text = "test 3", AdOwnerDto("Tesla")),
+        AdDto(id = 111, position = 1, text = "test 2", AdOwnerDto("SpaceX"), null),
+        AdDto(id = 112, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
+        AdDto(id = 113, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
+        AdDto(id = 114, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
     )
 
 

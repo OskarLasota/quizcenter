@@ -38,4 +38,11 @@ class AdMapperTest {
         assertEquals(correctAdDomainModel, result)
     }
 
+    @Test
+    fun `when dto video is null then returns null video in domain model`() {
+        val result = underTest.apply(correctAdDto.copy(video = null))
+
+        assertEquals(correctAdDomainModel.copy(video = null), result)
+    }
+
 }
