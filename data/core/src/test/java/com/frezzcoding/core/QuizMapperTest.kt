@@ -40,4 +40,11 @@ class QuizMapperTest {
         assertEquals(correctQuizModel, result)
     }
 
+    @Test
+    fun `when dto video is null map null to domain`() {
+        val result = underTest.apply(correctQuizDto.copy(video = null))
+
+        assertEquals(correctQuizModel.copy(video = null), result)
+    }
+
 }

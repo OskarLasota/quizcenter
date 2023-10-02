@@ -16,7 +16,8 @@ val correctQuizDto = QuizDto(
     userId = 123,
     statistics = correctQuizStatsDto,
     content = correctQuizContentDto,
-    owner = correctQuizOwnerDto
+    owner = correctQuizOwnerDto,
+    video = "correct.video"
 )
 
 val correctQuizModel = QuizDetails(
@@ -30,7 +31,8 @@ val correctQuizModel = QuizDetails(
             )
         )
     ),
-    owner = QuizOwner(name = "owner")
+    owner = QuizOwner(name = "owner"),
+    video = "correct.video"
 )
 
 

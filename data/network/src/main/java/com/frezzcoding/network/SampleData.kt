@@ -48,7 +48,8 @@ object SampleData {
                     )
                 )
             ),
-            owner = QuizOwnerDto(name = "owner")
+            owner = QuizOwnerDto(name = "owner"),
+            video = null
         )
 
 }

@@ -7,7 +7,7 @@ data class QuizDetails(
     val description: String,
     val content: Map<QuizQuestion, List<QuizAnswer>>,
     val owner: QuizOwner,
-    val video: String? = null
+    val video: String?
 ) : FeedItem
 
 data class QuizAnswer(

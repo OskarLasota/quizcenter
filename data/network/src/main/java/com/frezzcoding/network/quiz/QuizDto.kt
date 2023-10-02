@@ -6,5 +6,5 @@ data class QuizDto(
     val statistics: QuizStatsDto,
     val content: QuizContentDto,
     val owner: QuizOwnerDto,
-    val video: String? = null
+    val video: String?
 )
