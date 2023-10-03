@@ -14,7 +14,7 @@ class HomeRepositoryImplTest {
 
     @Before
     fun setup() {
-        underTest = HomeRepositoryImpl(AdMapper(), QuizMapper())
+        underTest = HomeRepositoryImpl(FakeApiService(), AdMapper(), QuizMapper())
     }
 
     @Test
