@@ -10,6 +10,10 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runBlockingTest
@@ -26,19 +30,22 @@ class HomeRepositoryImplTest {
     @MockK
     lateinit var quizMapper: QuizMapper
 
-    lateinit var underTest: HomeRepository
+    private val fakeApiService: FakeApiService = FakeApiService()
+
+    private lateinit var underTest: HomeRepository
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        underTest = HomeRepositoryImpl(FakeApiService(), AdMapper(), QuizMapper())
+        underTest = HomeRepositoryImpl(fakeApiService, adMapper, quizMapper)
     }
 
     @Test
-    fun `when ads mapper returns null models getAds returns empty list`() {
+    fun `when ads mapper returns null models getAds returns empty list`() = runTest {
+        every { }
         every { adMapper.apply(any()) } returns null
 
-        val result = underTest.getAds()
+        val result: List<AdDetails> = underTest.getAds().first()
 
         assertEquals(emptyList<AdDetails>(), result)
         verify { adMapper.apply(any()) }
@@ -48,7 +55,7 @@ class HomeRepositoryImplTest {
     fun `when quiz mapper returns null models getQuizzes returns empty list`() = runTest {
         every { quizMapper.apply(any()) } returns null
 
-        val result = underTest.getQuizzes()
+        val result = underTest.getQuizzes().first()
 
         assertEquals(emptyList<QuizDetails>(), result)
         verify { quizMapper.apply(any()) }
