@@ -6,6 +6,7 @@ import com.frezzcoding.core.mappers.AdMapper
 import com.frezzcoding.core.mappers.QuizMapper
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.network.quiz.QuizDto
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -42,12 +43,22 @@ class HomeRepositoryImplTest {
 
     @Test
     fun `when ads mapper returns null models getAds returns empty list`() = runTest {
-        every { }
         every { adMapper.apply(any()) } returns null
 
         val result: List<AdDetails> = underTest.getAds().first()
 
         assertEquals(emptyList<AdDetails>(), result)
+        verify { adMapper.apply(any()) }
+    }
+
+    @Test
+    fun `when ads mapper returns successful models getAds returns correct list`() = runTest {
+        every { adMapper.apply(any()) } returns baseAdDetails
+
+        val result: List<AdDetails> = underTest.getAds().first()
+
+        assertEquals(fakeApiService.fetchAds().size, result.size)
+        assertEquals(baseAdDetails, result[0])
         verify { adMapper.apply(any()) }
     }
 
@@ -58,6 +69,17 @@ class HomeRepositoryImplTest {
         val result = underTest.getQuizzes().first()
 
         assertEquals(emptyList<QuizDetails>(), result)
+        verify { quizMapper.apply(any()) }
+    }
+
+    @Test
+    fun `when quiz mapper returns successful models getQuizzes returns correct list`() = runTest {
+        every { quizMapper.apply(any()) } returns baseQuizModel
+
+        val result: List<QuizDetails> = underTest.getQuizzes().first()
+
+        assertEquals(fakeApiService.fetchQuizzes().size, result.size)
+        assertEquals(baseQuizModel, result[0])
         verify { quizMapper.apply(any()) }
     }
 
