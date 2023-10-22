@@ -8,5 +8,6 @@ interface HomeViewModel {
     val state: StateFlow<HomeUiState>
     val player: Player
 
+    fun getFeed()
     fun playVideo(quiz: QuizDetails?)
 }

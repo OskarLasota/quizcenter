@@ -17,22 +17,26 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class HomeViewModelImpl @Inject constructor(
-    fetchAdsUseCase: FetchAdsUseCase,
-    fetchQuizzesUseCase: FetchQuizzesUseCase,
-    override val player: Player,
+    private val fetchAdsUseCase: FetchAdsUseCase,
+    private val fetchQuizzesUseCase: FetchQuizzesUseCase,
+    override val player: Player, // this shouldn't be in the viewmodel but we should communicate with ui to control it
 ) : HomeViewModel, ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
 
     override val state: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
-    init {
+    override fun getFeed() {
         //combine the flows of both use cases
-        combine(fetchQuizzesUseCase.invoke(), fetchAdsUseCase.invoke()) { quizzes, ads ->
+        combine(
+            fetchQuizzesUseCase.invoke(),
+            fetchAdsUseCase.invoke()
+        ) { quizzes, ads ->
             HomeUiState(ads, quizzes)
         }.onEach { newState ->
             _uiState.value = newState
         }.launchIn(viewModelScope)
+
         player.playWhenReady = true
     }
 
