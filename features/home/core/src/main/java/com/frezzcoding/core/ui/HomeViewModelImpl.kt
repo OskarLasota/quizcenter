@@ -2,7 +2,7 @@ package com.frezzcoding.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.media3.common.Player
+import com.example.media.MediaPlayerManager
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.domain.usecase.FetchAdsUseCase
@@ -19,7 +19,7 @@ import javax.inject.Inject
 class HomeViewModelImpl @Inject constructor(
     private val fetchAdsUseCase: FetchAdsUseCase,
     private val fetchQuizzesUseCase: FetchQuizzesUseCase,
-    override val player: Player, // this shouldn't be in the viewmodel but we should communicate with ui to control it
+    override val player: MediaPlayerManager,
 ) : HomeViewModel, ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
@@ -37,11 +37,10 @@ class HomeViewModelImpl @Inject constructor(
             _uiState.value = newState
         }.launchIn(viewModelScope)
 
-        player.playWhenReady = true
     }
 
     override fun playVideo(quiz: QuizDetails?) {
-        player.prepare()
+        player.playVideo()
     }
 
 }

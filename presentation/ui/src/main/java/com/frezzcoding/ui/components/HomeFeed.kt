@@ -15,10 +15,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
-import androidx.media3.common.Player
 import com.frezzcoding.domain.models.FeedItem
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.example.media.MediaPlayerManager
 import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.max
 
@@ -27,7 +27,7 @@ import kotlin.math.max
 @Composable
 fun HomeFeed(
     items: ImmutableList<Any>,
-    player: Player,
+    player: MediaPlayerManager,
     lifecycle: Lifecycle.Event,
     onItemPressed: () -> Unit,
     onItemFullyVisible: (FeedItem?) -> Unit

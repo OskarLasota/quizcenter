@@ -21,16 +21,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.media3.common.MediaItem
-import androidx.media3.common.Player
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
+import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.quiz.QuizDetails
 
 @Composable
 fun QuizItem(
     quiz: QuizDetails,
     onPressed: () -> Unit,
-    player: Player,
+    player: MediaPlayerManager,
     lifecycle: Lifecycle.Event
 ) {
     Row(
@@ -89,7 +89,7 @@ fun UserAvatar(quiz: QuizDetails) {
 @Composable
 fun FeedContent(
     quiz: QuizDetails,
-    player: Player,
+    player: MediaPlayerManager,
     lifecycle: Lifecycle.Event,
     onPressed: () -> Unit
 ) {
@@ -108,15 +108,11 @@ fun FeedContent(
 }
 
 @Composable
-fun VideoPlayerItem(quiz: QuizDetails, player: Player, lifecycle: Lifecycle.Event) {
+fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager, lifecycle: Lifecycle.Event) {
     AndroidView(
         factory = { context ->
             PlayerView(context).also {
-                it.player = player.apply {
-                    player.setMediaItem(
-                        MediaItem.fromUri(quiz.video!!)
-                    )
-                }
+                it.player = player.applyMediaItem(MediaItem.fromUri(quiz.video!!))
             }
         },
         update = {

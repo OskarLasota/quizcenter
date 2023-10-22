@@ -37,6 +37,7 @@ dependencies {
     )
 
     implementation(
-            project(":domain")
+            project(":domain"),
+            project(":presentation:media")
     )
 }

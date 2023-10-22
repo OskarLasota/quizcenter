@@ -1,0 +1,25 @@
+apply from: "$rootDir/default-module-config.gradle"
+
+android {
+    namespace 'com.frezzcoding.quizcenter.presentation.core'
+    buildFeatures {
+        compose true
+    }
+}
+dependencies {
+
+    implementation(
+            deps.hilt.hiltAndroid,
+            deps.media3,
+    )
+    testImplementation(
+            test.androidTestCore,
+            test.core
+    )
+    debugImplementation(
+            deps.debugCompose
+    )
+    kapt(
+            deps.kaptHilt
+    )
+}

@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/infrastructure" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/presentation/core" />
+            <option value="$PROJECT_DIR$/presentation/media" />
             <option value="$PROJECT_DIR$/presentation/ui" />
           </set>
         </option>

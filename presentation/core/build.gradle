@@ -36,6 +36,7 @@ dependencies {
     implementation(
             project(":presentation:ui"),
             project(":domain"),
-            project(":features:home:contract")
+            project(":features:home:contract"),
+            project(":presentation:media")
     )
 }

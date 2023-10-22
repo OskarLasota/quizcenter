@@ -22,7 +22,8 @@ dependencies {
             deps.androidx.hiltNavigationCompose,
             deps.coroutines,
             deps.media3,
-            project(":domain")
+            project(":domain"),
+            project(":presentation:media")
     )
     testImplementation(
             test.androidTestCore,

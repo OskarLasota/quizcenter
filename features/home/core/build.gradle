@@ -25,7 +25,8 @@ dependencies {
             project(":domain"),
             project(":data:network"),
             project(":data:core"),
-            project(":features:home:contract")
+            project(":features:home:contract"),
+            project(":presentation:media")
     )
     testImplementation(
             test.androidTestCore,
