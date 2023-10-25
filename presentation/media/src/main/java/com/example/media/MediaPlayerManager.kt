@@ -34,10 +34,10 @@ class MediaPlayerManager @Inject constructor(
         } else {
             val player = createMediaPlayer()
             player.apply {
-                setMediaItem(mediaItem)
+                setMediaItem(mediaItem)//, 0L)
             }
-            player.playWhenReady = true // todo i think this can be avoided
-            existingPlayerIds.put(id, player)
+            existingPlayerIds[id] = player
+            player
         }
     }
 
