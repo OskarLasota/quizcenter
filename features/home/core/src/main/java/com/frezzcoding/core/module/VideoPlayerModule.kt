@@ -13,11 +13,6 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 class VideoPlayerModule {
 
-//    @Provides
-//    fun provideMediaPlayerManager(): MediaPlayerManager {
-//        return MediaPlayerManagerImpl()
-//    }
-
     //viewmodel scoped?
     @Provides
     fun provideVideoPlayer(app: Application): Player {
