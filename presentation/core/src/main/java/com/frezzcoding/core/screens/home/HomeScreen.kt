@@ -51,7 +51,7 @@ fun HomeScreen(
         player = homeViewModel.player,
         lifecycle = lifecycle,
         onItemFullyVisible = { item ->
-            onItemFullyVisible(item)
+            onItemFullyVisible(item, homeViewModel)
         },
         onItemPressed = { onAdPressed(navController, homeViewModel) }
     )
@@ -59,10 +59,11 @@ fun HomeScreen(
     homeViewModel.playVideo(null)
 }
 
-fun onItemFullyVisible(item: FeedItem?) {
+fun onItemFullyVisible(item: FeedItem?, viewModel: HomeViewModel) {
     when(item) {
         is QuizDetails -> {
             Log.e("home screen", "quiz details visible")
+            viewModel.playVideo(item)
         }
         is AdDetails -> {
             Log.e("home screen", "ad visible")

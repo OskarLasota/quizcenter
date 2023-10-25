@@ -2,6 +2,7 @@ package com.frezzcoding.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.MediaItem
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
@@ -26,6 +27,8 @@ class HomeViewModelImpl @Inject constructor(
 
     override val state: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
+    var previousViewed: Int? = 0
+
     override fun getFeed() {
         //combine the flows of both use cases
         combine(
@@ -40,7 +43,10 @@ class HomeViewModelImpl @Inject constructor(
     }
 
     override fun playVideo(quiz: QuizDetails?) {
-        player.playVideo()
+        if (quiz?.video != null && previousViewed != quiz.id) {
+            previousViewed = quiz.id
+            player.playVideo(quiz.id)
+        }
     }
 
 }

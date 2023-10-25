@@ -51,7 +51,7 @@ fun HomeFeed(
                         }
                     }
                     LaunchedEffect(visibleItems) {
-                        Log.d("visible ad items: ", visibleItems.count { it is AdDetails }.toString())
+                        Log.d("home feed", "visible ad items: " + visibleItems.count { it is AdDetails }.toString())
                     }
                     AdItem(item, onItemPressed)
                 }
@@ -69,7 +69,7 @@ fun HomeFeed(
                     }
                     LaunchedEffect(visibleItems) {
                         onItemFullyVisible(visibleItems.findLast { it is QuizDetails })
-                        Log.d("visible quiz items: ", visibleItems.count { it is QuizDetails }.toString())
+                        Log.d("home feed", "visible quiz items: " + visibleItems.count { it is QuizDetails }.toString())
                     }
                     QuizItem(item, onItemPressed, player, lifecycle)
                 }

@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -102,8 +103,10 @@ fun FeedContent(
                 .padding(bottom = 8.dp)
         )
     }
-    Box {
-        VideoPlayerItem(quiz, player, lifecycle)
+    if (quiz.video != null) {
+        Box {
+            VideoPlayerItem(quiz, player, lifecycle)
+        }
     }
 }
 
@@ -112,22 +115,23 @@ fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager, lifecycle: Li
     AndroidView(
         factory = { context ->
             PlayerView(context).also {
-                it.player = player.applyMediaItem(MediaItem.fromUri(quiz.video!!))
+                it.player = player.applyMediaItem(MediaItem.fromUri(quiz.video!!), quiz.id)
             }
         },
         update = {
-            when (lifecycle) {
-                Lifecycle.Event.ON_PAUSE -> {
-                    it.onPause()
-                    //it.player?.pause()
-                }
 
-                Lifecycle.Event.ON_RESUME -> {
-                    it.onResume()
-                }
-
-                else -> Unit
-            }
+//            when (lifecycle) {
+//                Lifecycle.Event.ON_PAUSE -> {
+//                    it.onPause()
+//                    //it.player?.pause()
+//                }
+//
+//                Lifecycle.Event.ON_RESUME -> {
+//                    it.onResume()
+//                }
+//
+//                else -> Unit
+//            }
         },
         modifier = Modifier
             .fillMaxWidth()
