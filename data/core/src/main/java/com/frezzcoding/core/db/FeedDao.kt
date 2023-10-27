@@ -10,15 +10,15 @@ import androidx.room.Update
 interface FeedDao {
 
     @Query("SELECT * FROM FeedItemEntity")
-    suspend fun getFeed(): List<FeedItemEntity>
+    fun getFeed(): List<FeedItemEntity>
 
     @Insert
-    suspend fun addItem(item: FeedItemEntity)
+    fun addItem(item: FeedItemEntity)
 
     @Update
-    suspend fun updateItem(item: FeedItemEntity)
+    fun updateItem(item: FeedItemEntity)
 
     @Delete
-    suspend fun deleteItem(item: FeedItemEntity)
+    fun deleteItem(item: FeedItemEntity)
 
 }

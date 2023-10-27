@@ -2,12 +2,10 @@ package com.frezzcoding.core.data.repository
 
 import com.frezzcoding.HomeRepository
 import com.frezzcoding.core.FakeApiService
-import com.frezzcoding.core.db.FeedDao
 import com.frezzcoding.core.mappers.AdMapper
 import com.frezzcoding.core.mappers.QuizMapper
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
-import com.frezzcoding.network.SampleData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
