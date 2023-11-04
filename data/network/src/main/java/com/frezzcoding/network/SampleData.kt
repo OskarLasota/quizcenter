@@ -19,10 +19,10 @@ object SampleData {
             adOwner = AdOwnerDto("Mazda"),
             video = null
         ),
-        AdDto(id = 111, position = 1, text = "test 2", AdOwnerDto("SpaceX"), null),
-        AdDto(id = 112, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
-        AdDto(id = 113, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
-        AdDto(id = 114, position = 2, text = "test 3", AdOwnerDto("Tesla"), null),
+        AdDto(id = 111, position = 1, text = "test 2", AdOwnerDto("SpaceX Ad"), null),
+        AdDto(id = 112, position = 2, text = "test 3", AdOwnerDto("Tesla Ad"), null),
+        AdDto(id = 113, position = 2, text = "test 3", AdOwnerDto("Tesla Ad"), null),
+        AdDto(id = 114, position = 2, text = "test 3", AdOwnerDto("Tesla Ad"), null),
     )
 
 
@@ -39,7 +39,7 @@ object SampleData {
             id = 0, userId = 0, statistics = QuizStatsDto(), content =
             QuizContentDto(
                 id = 0,
-                description = "this is a sample quiz this is a sample quizthis is a sample quizthis is a sample quiz",
+                description = "this is a sample quiz this is a sample quiz this is a sample quiz this is a sample quiz",
                 content = mapOf(
                     QuizQuestionDto("is it sample A?") to listOf(
                         QuizAnswerDto("A", true),

@@ -71,7 +71,7 @@ fun HomeFeed(
                         onItemFullyVisible(visibleItems.findLast { it is QuizDetails })
                         Log.d("home feed", "visible quiz items: " + visibleItems.count { it is QuizDetails }.toString())
                     }
-                    QuizItem(item, onItemPressed, player, lifecycle)
+                    QuizItem(item, onItemPressed, player)
                 }
             }
         }

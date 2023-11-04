@@ -32,7 +32,7 @@ fun QuizItem(
     quiz: QuizDetails,
     onPressed: () -> Unit,
     player: MediaPlayerManager,
-    lifecycle: Lifecycle.Event
+    //lifecycle: Lifecycle.Event
 ) {
     Row(
         modifier = Modifier
@@ -44,7 +44,7 @@ fun QuizItem(
         Column {
             NameAndUsername(quiz)
             Spacer(modifier = Modifier.size(1.dp))
-            FeedContent(quiz, player, lifecycle, onPressed)
+            FeedContent(quiz, player, onPressed)
             Spacer(modifier = Modifier.size(10.dp))
             QuizActions(quiz)
         }
@@ -91,7 +91,7 @@ fun UserAvatar(quiz: QuizDetails) {
 fun FeedContent(
     quiz: QuizDetails,
     player: MediaPlayerManager,
-    lifecycle: Lifecycle.Event,
+    //lifecycle: Lifecycle.Event,
     onPressed: () -> Unit
 ) {
     Box {
@@ -105,13 +105,13 @@ fun FeedContent(
     }
     if (quiz.video != null) {
         Box {
-            VideoPlayerItem(quiz, player, lifecycle)
+            VideoPlayerItem(quiz, player)
         }
     }
 }
 
 @Composable
-fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager, lifecycle: Lifecycle.Event) {
+fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager) {
     AndroidView(
         factory = { context ->
             PlayerView(context).also {
