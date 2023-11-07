@@ -44,6 +44,4 @@ class MediaPlayerManager @Inject constructor(
     private fun createMediaPlayer(): Player {
         return ExoPlayer.Builder(app).build()
     }
-
-
 }
