@@ -2,6 +2,7 @@ package com.frezzcoding.ui.components
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState
@@ -14,67 +15,79 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.Lifecycle
-import com.frezzcoding.domain.models.FeedItem
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.unit.dp
+import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
-import com.example.media.MediaPlayerManager
 import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.max
 
 
-//todo need to understand if this is being composed too often and if it is built corrrectly
+//todo need to create preview files
+//todo need to understand if this is being composed too often and if it is built correctly
 @Composable
 fun HomeFeed(
     items: ImmutableList<Any>,
     player: MediaPlayerManager,
-    lifecycle: Lifecycle.Event,
     onItemPressed: () -> Unit,
-    onItemFullyVisible: (FeedItem?) -> Unit
+    onVideoItemFullyVisible: (QuizDetails?) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    val state = rememberLazyListState()
+    val scrollState = rememberLazyListState()
+    val listHeight = LocalConfiguration.current.screenHeightDp.dp - 56.dp // todo magic number
+
     LazyColumn(
-        modifier = Modifier.background(MaterialTheme.colors.secondary),
-        state = state
+        state = scrollState,
+        modifier = modifier
+            .background(MaterialTheme.colors.secondary)
+            .heightIn(max = listHeight)
     ) {
         items(items) { item ->
             when (item) {
                 is AdDetails -> {
-                    val visibleItems by remember(state) {
-                        derivedStateOf {
-                            var visibleItems = emptyList<FeedItem>()
-                            if (items.isNotEmpty()) {
-                                visibleItems = state.visibleItems(100f)
-                                    .map { items[it.index] as FeedItem }
-                            }
-                            visibleItems
-                        }
-                    }
-                    LaunchedEffect(visibleItems) {
-                        Log.d("home feed", "visible ad items: " + visibleItems.count { it is AdDetails }.toString())
-                    }
                     AdItem(item, onItemPressed)
                 }
 
                 is QuizDetails -> {
-                    val visibleItems by remember(state) {
-                        derivedStateOf {
-                            var visibleItems = emptyList<FeedItem>()
-                            if (items.isNotEmpty()) {
-                                visibleItems = state.visibleItems(50f)
-                                    .map { items[it.index] as FeedItem }
-                            }
-                            visibleItems
-                        }
-                    }
-                    LaunchedEffect(visibleItems) {
-                        onItemFullyVisible(visibleItems.findLast { it is QuizDetails })
-                        Log.d("home feed", "visible quiz items: " + visibleItems.count { it is QuizDetails }.toString())
-                    }
                     QuizItem(item, onItemPressed, player)
                 }
             }
         }
+    }
+//    val visibleItems: List<FeedItem?> by remember(scrollState, items) {
+//        derivedStateOf {
+//            // could easily change this logic to check which item is no longer visible and
+//            // potentially run some logic on it? e.g. pausing a video.
+//            scrollState.visibleItems(100f)
+//                .mapNotNull {
+//                    if (it.index >= items.size) return@mapNotNull null
+//
+//                    items[it.index] as FeedItem
+//                }
+//        }
+//    }
+
+    val lastVisibleQuizWithVideo: QuizDetails? by remember(scrollState, items) {
+        derivedStateOf {
+            val lastItem = scrollState.visibleItems(80f).findLast {
+                if (it.index >= items.size) return@findLast false
+                if (items[it.index] !is QuizDetails) return@findLast false
+
+                return@findLast (items[it.index] as QuizDetails).video?.isNotEmpty() == true
+            }
+            lastItem?.let {
+                items[it.index] as QuizDetails
+            }
+        }
+    }
+
+    LaunchedEffect(lastVisibleQuizWithVideo) {
+        onVideoItemFullyVisible(lastVisibleQuizWithVideo)
+        Log.d(
+            "home feed",
+            "visible quiz item id: " + lastVisibleQuizWithVideo?.id
+        )
     }
 }
 
