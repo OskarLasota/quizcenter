@@ -15,7 +15,7 @@ allprojects {
         hiltNavigationCompose = '1.0.0'
         kotlinXcoroutines = '1.6.4'
         mockito = '2.2.0'
-        mockk = '1.13.2'
+        mockk = '1.13.9'
         room = '2.5.2'
 
 
