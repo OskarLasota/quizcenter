@@ -10,7 +10,7 @@ class MediaPlayerManager @Inject constructor(
     private val app: Application
 ) {
 
-    // todo need to clear these exoplayers
+    // TODO need to clear these exoplayers - on scroll potentially?
     private var existingPlayerIds: MutableMap<Int, Player> = mutableMapOf()
 
     fun playVideo(id: Int) {
@@ -22,22 +22,27 @@ class MediaPlayerManager @Inject constructor(
         }
     }
 
-    fun pause(id: Int) {
+    private fun pause(id: Int) {
         if (existingPlayerIds.contains(id)) {
             existingPlayerIds[id]?.pause()
         }
     }
 
     fun applyMediaItem(mediaItem: MediaItem, id: Int): Player? {
-        return if (existingPlayerIds.contains(id)) {
-            null
-        } else {
+        return if (!existingPlayerIds.contains(id)) {
             val player = createMediaPlayer()
             player.apply {
                 setMediaItem(mediaItem)//, 0L)
             }
             existingPlayerIds[id] = player
             player
+        } else {
+            existingPlayerIds.map {
+                if (it.key != id) {
+                    pause(it.key)
+                }
+            }
+            null
         }
     }
 

@@ -30,8 +30,6 @@ fun HomeScreen(
         },
         onItemPressed = { onAdPressed(navController, homeViewModel) }
     )
-
-    homeViewModel.playVideo(null)
 }
 
 fun onVideoItemFullyVisible(item: QuizDetails?, viewModel: HomeViewModel) {

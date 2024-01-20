@@ -119,6 +119,7 @@ fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager) {
             }
         },
         update = {
+        //todo this will be necessaryy
 
 //            when (lifecycle) {
 //                Lifecycle.Event.ON_PAUSE -> {

@@ -27,7 +27,7 @@ class HomeViewModelImpl @Inject constructor(
 
     override val state: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
-    var previousViewed: Int? = 0
+    private var previousViewed: Int? = 0
 
     override fun getFeed() {
         //combine the flows of both use cases
@@ -44,8 +44,8 @@ class HomeViewModelImpl @Inject constructor(
 
     override fun playVideo(quiz: QuizDetails?) {
         if (quiz?.video != null && previousViewed != quiz.id) {
-            previousViewed = quiz.id
             player.playVideo(quiz.id)
+            previousViewed = quiz.id
         }
     }
 
