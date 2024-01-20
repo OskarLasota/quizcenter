@@ -10,6 +10,6 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "11:30"
+      time: "11:17"
       timezone: "Europe/Dublin"
-     target-branch: "main"
+    target-branch: "main"
