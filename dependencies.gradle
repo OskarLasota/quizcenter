@@ -44,7 +44,7 @@ allprojects {
                 ],
                 kaptHilt    : [
                         "androidx.hilt:hilt-compiler:1.0.0",
-                        "com.google.dagger:hilt-compiler:2.46",
+                        "com.google.dagger:hilt-compiler:2.50",
                 ],
                 coroutines  : [
                         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinXcoroutines"
