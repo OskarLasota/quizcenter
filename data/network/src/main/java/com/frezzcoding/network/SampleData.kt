@@ -27,10 +27,10 @@ object SampleData {
 
 
     val quizSample = listOf(
-        quizContent.copy(id = 1, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
+        quizContent.copy(id = 1, video = null),
         quizContent.copy(id = 2, video = null),
-        quizContent.copy(id = 3, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"),
-        quizContent.copy(id = 4, video = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"),
+        quizContent.copy(id = 3, video = null),
+        quizContent.copy(id = 4, video = null), //"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
     )
 
 
