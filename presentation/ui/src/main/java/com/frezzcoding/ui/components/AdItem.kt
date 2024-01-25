@@ -27,7 +27,7 @@ fun AdItem(ad: AdDetails, onPressed: () -> Unit) {
             .padding(all = 10.dp)
             .fillMaxWidth()
     ) {
-        UserAvatar(ad)
+        UserAvatar()
         Spacer(modifier = Modifier.size(12.dp))
         Column {
             NameAndUsername(ad)
@@ -58,7 +58,7 @@ fun NameAndUsername(ad: AdDetails) {
 }
 
 @Composable
-fun UserAvatar(ad: AdDetails) {
+fun UserAvatar() {
     // User Avatar
     Box(
         modifier = Modifier
