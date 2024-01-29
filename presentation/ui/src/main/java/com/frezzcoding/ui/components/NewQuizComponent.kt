@@ -1,5 +1,6 @@
 package com.frezzcoding.ui.components
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,8 +27,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.frezzcoding.quizcenter.presentation.ui.R
 
 @Composable
 fun NewQuizComponent(
@@ -58,14 +61,14 @@ fun QuizActionHeader() {
     ) {
         Icon(
             imageVector = Icons.Default.Clear,
-            contentDescription = "Exit screen", // todo localise
+            contentDescription = stringResource(id = R.string.exit_screen_action),
             tint = Color.White,
             modifier = Modifier
                 .size(28.dp)
         )
         Icon(
             imageVector = Icons.Default.CheckCircle,
-            contentDescription = "Submit quiz", // todo localise
+            contentDescription = stringResource(id = R.string.submit_quiz_action),
             tint = Color.White,
             modifier = Modifier
                 .size(28.dp)

@@ -4,4 +4,6 @@
     <string name="new_quiz_screen_title">Create new Quiz</string>
     <string name="search_screen_title">Search</string>
     <string name="profile_screen_title">Profile</string>
+    <string name="exit_screen_action">Exit Screen</string>
+    <string name="submit_quiz_action">Submit Quiz</string>
 </resources>
