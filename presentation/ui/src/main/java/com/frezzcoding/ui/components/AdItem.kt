@@ -59,22 +59,6 @@ fun NameAndUsername(ad: AdDetails) {
 }
 
 @Composable
-fun UserAvatar(paddingStart: Dp = 0.dp) {
-    // User Avatar
-    Box(
-        modifier = Modifier
-            .padding(top = 5.dp, start = paddingStart)
-            .size(40.dp) // Adjust the size as needed
-            .clip(shape = CircleShape) // Clip the avatar to a circle shape
-    ) {
-        AsyncImage(
-            contentDescription = null,
-            model = "https://loremflickr.com/320/320/dogs"
-        )
-    }
-}
-
-@Composable
 fun FeedContent(ad: AdDetails) {
     Box {
         Text(
