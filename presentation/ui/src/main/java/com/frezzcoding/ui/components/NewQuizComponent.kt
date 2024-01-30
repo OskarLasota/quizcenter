@@ -85,7 +85,7 @@ fun QuizActionHeader() {
 @Preview
 fun QuizContentBox() {
     Row {
-        UserAvatar()
+        UserAvatar(paddingStart = 20.dp)
         Spacer(modifier = Modifier.size(12.dp))
         Column(
             modifier = Modifier

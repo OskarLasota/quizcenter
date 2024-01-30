@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.frezzcoding.domain.models.ad.AdDetails
@@ -58,11 +59,11 @@ fun NameAndUsername(ad: AdDetails) {
 }
 
 @Composable
-fun UserAvatar() {
+fun UserAvatar(paddingStart: Dp = 0.dp) {
     // User Avatar
     Box(
         modifier = Modifier
-            .padding(top = 5.dp)
+            .padding(top = 5.dp, start = paddingStart)
             .size(40.dp) // Adjust the size as needed
             .clip(shape = CircleShape) // Clip the avatar to a circle shape
     ) {
