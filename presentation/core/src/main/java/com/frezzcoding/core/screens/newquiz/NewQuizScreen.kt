@@ -12,9 +12,13 @@ fun NewQuizScreen(
     navController: NavController,
     homeViewModel: HomeViewModel
 ) {
-    NewQuizComponent(onQuizPosted = { onNewQuizPosted() })
+    NewQuizComponent(onQuizPosted = { onNewQuizPosted() }, onQuizClosed = { onQuizClosed() })
 }
 
 fun onNewQuizPosted() {
     Log.d("new quiz", "quiz posted")
+}
+
+fun onQuizClosed() {
+    Log.d("new quiz", "quiz closed")
 }
