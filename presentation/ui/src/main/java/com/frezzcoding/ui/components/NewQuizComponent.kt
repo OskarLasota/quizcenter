@@ -46,8 +46,8 @@ fun NewQuizComponent(
 ) {
     //top part with X button and Post button
     //mid content part - avatar on left and text box with description
-    //mid content part - add quiz answers
-    //bottom gallery on top of keyboard
+    //mid content part - add quiz answers todo
+    //bottom gallery on top of keyboard todo
     Column(
         modifier = Modifier
             .background(MaterialTheme.colors.secondary)
@@ -111,7 +111,7 @@ fun QuizContentTextField() {
         onValueChange = { text = it },
         placeholder = {
             Text(
-                text = "What's quizzing?",
+                text = stringResource(id = R.string.quiz_hint_description),
                 color = DefaultGrey
             )
         },

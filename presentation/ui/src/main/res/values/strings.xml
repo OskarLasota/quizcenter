@@ -6,4 +6,6 @@
     <string name="profile_screen_title">Profile</string>
     <string name="exit_screen_action">Exit Screen</string>
     <string name="submit_quiz_action">Submit Quiz</string>
+
+    <string name="quiz_hint_description">What\'s quizzing?</string>
 </resources>
