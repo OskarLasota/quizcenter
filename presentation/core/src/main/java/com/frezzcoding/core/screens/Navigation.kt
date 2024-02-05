@@ -16,6 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.frezzcoding.CreateQuizViewModel
 import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.screens.home.HomeScreen
 import com.frezzcoding.core.screens.newquiz.NewQuizScreen
@@ -26,7 +27,8 @@ import com.frezzcoding.ui.screens.Screens
 import javax.inject.Inject
 
 class AppNavigator @Inject constructor(
-    private val homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel,
+    private val createQuizViewModel: CreateQuizViewModel
 ) {
 
     @Composable
@@ -41,7 +43,7 @@ class AppNavigator @Inject constructor(
                 HomeScreen(navController = navController, homeViewModel)
             }
             composable(route = Screens.NewQuizScreens.route) {
-                NewQuizScreen(navController = navController, homeViewModel)
+                NewQuizScreen(navController = navController, createQuizViewModel)
             }
             composable(route = Screens.SearchScreens.route) {
                 SearchScreen(navController = navController, homeViewModel)
