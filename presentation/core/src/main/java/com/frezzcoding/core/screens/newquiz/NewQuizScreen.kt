@@ -1,25 +1,25 @@
 package com.frezzcoding.core.screens.newquiz
 
-import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.frezzcoding.CreateQuizViewModel
-import com.frezzcoding.HomeViewModel
 import com.frezzcoding.ui.components.NewQuizComponent
 
 @Composable
 fun NewQuizScreen(
     navController: NavController,
-    homeViewModel: CreateQuizViewModel
+    createQuizViewModel: CreateQuizViewModel
 ) {
-    NewQuizComponent(onQuizPosted = { onNewQuizPosted() }, onQuizClosed = { onQuizClosed() })
+    NewQuizComponent(
+        onQuizPosted = { onNewQuizPosted(createQuizViewModel) },
+        onQuizClosed = { onQuizClosed(navController, createQuizViewModel) })
 }
 
-fun onNewQuizPosted() {
-    Log.d("new quiz", "quiz posted")
+fun onNewQuizPosted(createQuizViewModel: CreateQuizViewModel) {
+    createQuizViewModel.onCreateQuizAction()
 }
 
-fun onQuizClosed() {
-    Log.d("new quiz", "quiz closed")
+fun onQuizClosed(navController: NavController, createQuizViewModel: CreateQuizViewModel) {
+    createQuizViewModel.onQuizScreenClosed()
+    navController.popBackStack()
 }
