@@ -74,5 +74,6 @@ dependencies {
             project(':features:home:contract'),
             project(':features:home:core'),
             project(':features:createquiz:contract'),
+            project(':features:createquiz:core'),
     )
 }
