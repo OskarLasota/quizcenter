@@ -5,7 +5,7 @@ import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FetchQuizzesUseCase @Inject constructor(
+internal class FetchQuizzesUseCase @Inject constructor(
     private val repo: HomeRepository,
 ) {
 

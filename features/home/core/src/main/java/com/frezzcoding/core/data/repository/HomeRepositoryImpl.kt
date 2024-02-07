@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
-class HomeRepositoryImpl @Inject constructor(
+internal class HomeRepositoryImpl @Inject constructor(
     private val apiService: FakeApiService,
     private val adMapper: AdMapper,
     private val quizMapper: QuizMapper

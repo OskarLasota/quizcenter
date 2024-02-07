@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-class HomeViewModelImpl @Inject constructor(
+internal class HomeViewModelImpl @Inject constructor(
     private val fetchAdsUseCase: FetchAdsUseCase,
     private val fetchQuizzesUseCase: FetchQuizzesUseCase,
     override val player: MediaPlayerManager,

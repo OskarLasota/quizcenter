@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class HomeViewModelModule {
+internal abstract class HomeViewModelModule {
 
     @Binds
     abstract fun bindsHomeViewModel(impl: HomeViewModelImpl): HomeViewModel

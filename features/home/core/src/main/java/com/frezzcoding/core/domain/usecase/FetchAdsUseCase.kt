@@ -5,7 +5,7 @@ import com.frezzcoding.domain.models.ad.AdDetails
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FetchAdsUseCase @Inject constructor(
+internal class FetchAdsUseCase @Inject constructor(
     private val repo: HomeRepository
 ) {
 
