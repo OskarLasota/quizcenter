@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class CreateQuizViewModelModule {
+internal abstract class CreateQuizViewModelModule {
 
     @Binds
     abstract fun bindsQuizViewModel(impl: CreateQuizViewModelImpl): CreateQuizViewModel
