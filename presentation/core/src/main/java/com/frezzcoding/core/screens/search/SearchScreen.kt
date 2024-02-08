@@ -11,4 +11,7 @@ fun SearchScreen(
     homeViewModel: HomeViewModel
 ) {
 
+    SearchScreenComponent(
+        //onAction
+    )
 }
