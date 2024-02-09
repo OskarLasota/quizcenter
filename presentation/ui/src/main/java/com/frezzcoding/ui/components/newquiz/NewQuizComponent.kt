@@ -31,6 +31,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.frezzcoding.quizcenter.presentation.ui.R
+import com.frezzcoding.ui.components.UserAvatar
 import com.frezzcoding.ui.themes.DefaultBlue
 import com.frezzcoding.ui.themes.DefaultGrey
 
@@ -126,5 +127,5 @@ fun QuizContentTextField() {
         modifier = Modifier
             .height(300.dp),
 
-    )
+        )
 }
