@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components
+package com.frezzcoding.ui.components.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

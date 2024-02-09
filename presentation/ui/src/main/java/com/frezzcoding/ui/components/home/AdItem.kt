@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components
+package com.frezzcoding.ui.components.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -8,18 +8,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.frezzcoding.domain.models.ad.AdDetails
+import com.frezzcoding.ui.components.newquiz.UserAvatar
 
 @Composable
 fun AdItem(ad: AdDetails, onPressed: () -> Unit) {

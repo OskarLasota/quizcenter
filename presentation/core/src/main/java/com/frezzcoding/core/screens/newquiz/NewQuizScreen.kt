@@ -3,7 +3,7 @@ package com.frezzcoding.core.screens.newquiz
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.frezzcoding.CreateQuizViewModel
-import com.frezzcoding.ui.components.NewQuizComponent
+import com.frezzcoding.ui.components.newquiz.NewQuizComponent
 
 @Composable
 fun NewQuizScreen(

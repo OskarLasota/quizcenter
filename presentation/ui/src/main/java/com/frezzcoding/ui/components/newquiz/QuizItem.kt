@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components
+package com.frezzcoding.ui.components.newquiz
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,19 +13,18 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.Lifecycle
 import androidx.media3.common.MediaItem
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.ui.components.UserAvatar
 
 @Composable
 fun QuizItem(
@@ -39,7 +38,7 @@ fun QuizItem(
             .padding(all = 10.dp)
             .fillMaxWidth()
     ) {
-        UserAvatar(quiz)
+        UserAvatar()
         Spacer(modifier = Modifier.size(12.dp))
         Column {
             NameAndUsername(quiz)
@@ -66,23 +65,6 @@ fun NameAndUsername(quiz: QuizDetails) {
             maxLines = 1,
             modifier = Modifier
                 .padding(bottom = 10.dp)
-        )
-    }
-}
-
-@Composable
-fun UserAvatar(quiz: QuizDetails) {
-    // User Avatar
-    Box(
-        modifier = Modifier
-            .padding(top = 5.dp)
-            .size(40.dp) // Adjust the size as needed
-            .clip(shape = CircleShape) // Clip the avatar to a circle shape
-    ) {
-        // Can load the user's avatar image here
-        AsyncImage(
-            contentDescription = null,
-            model = "https://loremflickr.com/320/320/dogs"
         )
     }
 }

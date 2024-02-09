@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components
+package com.frezzcoding.ui.components.newquiz
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

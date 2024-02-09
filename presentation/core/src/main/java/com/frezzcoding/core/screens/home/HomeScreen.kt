@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel
 import com.frezzcoding.domain.models.quiz.QuizDetails
-import com.frezzcoding.ui.components.HomeFeed
+import com.frezzcoding.ui.components.home.HomeFeed
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 

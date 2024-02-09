@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components
+package com.frezzcoding.ui.components.home
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.ad.AdDetails
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.ui.components.newquiz.QuizItem
 import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.max
 
