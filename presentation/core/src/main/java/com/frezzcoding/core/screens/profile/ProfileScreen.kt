@@ -10,5 +10,7 @@ fun ProfileScreen(
     navController: NavController,
     homeViewModel: HomeViewModel
 ) {
-
+    ProfileScreenComponent(
+        //action
+    )
 }
