@@ -9,19 +9,16 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.ui.PlayerView
-import coil.compose.AsyncImage
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.ui.components.UserAvatar
@@ -101,7 +98,7 @@ fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager) {
             }
         },
         update = {
-        //todo this will be necessaryy
+            //todo this will be necessaryy
 
 //            when (lifecycle) {
 //                Lifecycle.Event.ON_PAUSE -> {

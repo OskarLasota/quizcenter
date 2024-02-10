@@ -8,9 +8,7 @@ import org.junit.Test
 
 class QuizMapperTest {
 
-
     private val underTest = QuizMapper()
-
 
     @Test
     fun `when dto id is null then returns null`() {

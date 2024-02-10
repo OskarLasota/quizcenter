@@ -2,7 +2,6 @@ package com.frezzcoding.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.media3.common.MediaItem
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.HomeUiState
 import com.frezzcoding.HomeViewModel

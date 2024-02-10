@@ -10,7 +10,6 @@ class AdMapperTest {
 
     private val underTest = AdMapper()
 
-
     @Test
     fun `when dto id is null then returns null`() {
         assertNull(underTest.apply(correctAdDto.copy(id = null)))

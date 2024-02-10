@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.frezzcoding.domain.models.ad.AdDetails
-import com.frezzcoding.ui.components.newquiz.UserAvatar
+import com.frezzcoding.ui.components.UserAvatar
 
 @Composable
 fun AdItem(ad: AdDetails, onPressed: () -> Unit) {

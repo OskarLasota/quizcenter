@@ -14,7 +14,6 @@ val correctAdDto
         video = null
     )
 
-
 val correctAdOwnerDto
     get() = AdOwnerDto(
         name = "ad owner"

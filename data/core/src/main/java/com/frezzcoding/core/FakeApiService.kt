@@ -11,7 +11,7 @@ class FakeApiService @Inject constructor() {
         return SampleData.advertisementsSample
     }
 
-    fun fetchQuizzes() : List<QuizDto> {
+    fun fetchQuizzes(): List<QuizDto> {
         return SampleData.quizSample
     }
 
