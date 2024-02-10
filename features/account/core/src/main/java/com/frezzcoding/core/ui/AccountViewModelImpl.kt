@@ -1,4 +1,4 @@
-package com.frezzcoding.core
+package com.frezzcoding.core.ui
 
 import androidx.lifecycle.ViewModel
 import com.frezzcoding.AccountViewModel

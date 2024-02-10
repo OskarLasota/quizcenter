@@ -1,5 +1,6 @@
-package com.frezzcoding.core
+package com.frezzcoding.core.di
 
+import com.frezzcoding.core.ui.AccountViewModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
