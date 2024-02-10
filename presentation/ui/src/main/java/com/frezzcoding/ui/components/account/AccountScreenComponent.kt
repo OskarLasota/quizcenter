@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components.profile
+package com.frezzcoding.ui.components.account
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ProfileScreenComponent() {
+fun AccountScreenComponent() {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colors.secondary)

@@ -20,7 +20,7 @@ fun BottomNavigationBar(navController: NavController) {
         Screens.HomeFeed,
         Screens.NewQuizScreens,
         Screens.SearchScreens,
-        Screens.ProfileScreen
+        Screens.AccountScreen
     )
 
     BottomNavigation(backgroundColor = DefaultGreyish) {

@@ -1,16 +1,16 @@
-package com.frezzcoding.core.screens.profile
+package com.frezzcoding.core.screens.account
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.frezzcoding.HomeViewModel
-import com.frezzcoding.ui.components.profile.ProfileScreenComponent
+import com.frezzcoding.ui.components.account.AccountScreenComponent
 
 @Composable
-fun ProfileScreen(
+fun AccountScreen(
     navController: NavController,
     homeViewModel: HomeViewModel
 ) {
-    ProfileScreenComponent(
+    AccountScreenComponent(
         //action
     )
 }

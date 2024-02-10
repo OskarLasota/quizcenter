@@ -28,9 +28,9 @@ sealed class Screens(val route: String, @StringRes val titleResId: Int, val icon
         icon = Icons.Default.Search
     )
 
-    object ProfileScreen : Screens(
-        route = "profile_screen",
-        titleResId = R.string.profile_screen_title,
+    object AccountScreen : Screens(
+        route = "account_screen",
+        titleResId = R.string.account_screen_title,
         icon = Icons.Default.Person
     )
 }
