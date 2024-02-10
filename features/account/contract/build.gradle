@@ -1,43 +1,38 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
+apply from: "$rootDir/default-module-config.gradle"
 
 android {
-    namespace 'com.quizcenter.features.account.contract'
-    compileSdk 33
-
-    defaultConfig {
-        applicationId "com.quizcenter.features.account.contract"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    namespace 'com.frezzcoding.quizcenter.features.account.contract'
+    buildFeatures {
+        compose true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(
+            deps.compose.ui,
+            deps.compose.material,
+            deps.debugCompose,
+            deps.hilt.hiltAndroid,
+            deps.compose.navigationCompose,
+            deps.compose.composeToolingUi,
+            deps.androidx.lifecycleKtx,
+            deps.androidx.lifecycleViewmodel,
+            deps.androidx.activityCompose,
+            deps.androidx.hiltNavigationCompose,
+            deps.coroutines,
+            deps.media3,
+            project(":domain"),
+            project(":presentation:media")
+    )
+    testImplementation(
+            test.androidTestCore,
+            test.core
+    )
+    debugImplementation(
+            deps.debugCompose
+    )
+    kapt(
+            deps.kaptHilt
+    )
 }
