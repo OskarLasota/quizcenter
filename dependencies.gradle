@@ -18,7 +18,7 @@ allprojects {
         mockk = '1.13.9'
         room = '2.5.2'
         media = '1.2.1'
-
+        firebase = '32.7.2'
 
         deps = [
                 compose     : [
@@ -62,6 +62,10 @@ allprojects {
                         "androidx.media3:media3-exoplayer:$media",
                         "androidx.media3:media3-exoplayer-dash:$media",
                         "androidx.media3:media3-ui:$media",
+                ],
+                firebase    : [
+                        "com.google.firebase:firebase-bom:$firebase",
+                        "com.google.firebase:firebase-analytics"
                 ]
         ]
 
