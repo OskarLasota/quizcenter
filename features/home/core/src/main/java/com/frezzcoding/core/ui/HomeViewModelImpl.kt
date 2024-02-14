@@ -1,5 +1,6 @@
 package com.frezzcoding.core.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.media.MediaPlayerManager
@@ -11,6 +12,7 @@ import com.frezzcoding.domain.models.quiz.QuizDetails
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -35,6 +37,8 @@ internal class HomeViewModelImpl @Inject constructor(
             fetchAdsUseCase.invoke()
         ) { quizzes, ads ->
             HomeUiState(ads, quizzes)
+        }.catch {
+            Log.e("HomeViewModelImpl", "issue found : $it")
         }.onEach { newState ->
             _uiState.value = newState
         }.launchIn(viewModelScope)
