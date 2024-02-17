@@ -11,7 +11,7 @@ allprojects {
         espresso = '3.5.1'
         navigationCompose = '2.5.2'
         hiltCore = '2.50'
-        hiltCompiler = '1.1.0-alpha01'
+        hiltCompiler = '1.2.0-rc01'
         hiltNavigationCompose = '1.0.0'
         kotlinXcoroutines = '1.7.3'
         mockito = '2.2.0'
