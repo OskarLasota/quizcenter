@@ -19,6 +19,7 @@ allprojects {
         room = '2.6.1'
         media = '1.2.1'
         firebase = '32.7.2'
+        firebaseDatabase = '20.3.0'
 
         deps = [
                 compose     : [
@@ -65,7 +66,8 @@ allprojects {
                 ],
                 firebase    : [
                         "com.google.firebase:firebase-bom:$firebase",
-                        "com.google.firebase:firebase-analytics"
+                        "com.google.firebase:firebase-analytics",
+                        "com.google.firebase:firebase-database:$firebaseDatabase"
                 ]
         ]
 
