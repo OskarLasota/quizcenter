@@ -29,15 +29,10 @@ internal class HomeRepositoryImpl @Inject constructor(
         try {
             val reference = db.collection("/quizzes")
             val result = reference.get().await()
-            val quizzes: List<QuizDto> = result.map { document ->
-                QuizDto(
-                    id = document.id.toInt(),
-                    description = document.data["description"] as? String,
-                    ownerId = (document.data["ownerId"] as? Long)?.toInt(),
-                    videoUrl = null
-                )
-            }
+
+            val quizzes: List<QuizDto> = result.map(quizMapper::snapshotToQuizDto)
             val mappedQuizzes: List<QuizDetails> = quizzes.mapNotNull { quizMapper.apply(it) }
+
             emit(mappedQuizzes)
         } catch (exception: Exception) {
             Log.e("HomeRepositoryImpl", exception.toString())

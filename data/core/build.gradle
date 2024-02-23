@@ -22,7 +22,8 @@ dependencies {
             deps.androidx.hiltNavigationCompose,
             deps.coroutines,
             deps.room.runtime,
-            deps.room.ktx
+            deps.room.ktx,
+            deps.firebase
     )
     testImplementation(
             test.androidTestCore,
