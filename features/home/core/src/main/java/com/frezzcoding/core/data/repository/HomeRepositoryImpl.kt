@@ -14,10 +14,9 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 internal class HomeRepositoryImpl @Inject constructor(
-    //private val apiService: FakeApiService,
     private val adMapper: AdMapper,
     private val quizMapper: QuizMapper,
-    private val db: FirebaseFirestore
+    private val db: FirebaseFirestore // todo create a wrapper
 ) : HomeRepository {
 
     override fun getAds(): Flow<List<AdDetails>> {

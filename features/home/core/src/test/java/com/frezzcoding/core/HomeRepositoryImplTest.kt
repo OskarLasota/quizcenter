@@ -31,8 +31,6 @@ class HomeRepositoryImplTest {
     @MockK
     lateinit var quizMapper: QuizMapper
 
-    private val fakeApiService: FakeApiService = FakeApiService()
-
     private lateinit var underTest: HomeRepository
 
     @Before
