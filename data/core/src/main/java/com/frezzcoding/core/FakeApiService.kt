@@ -7,12 +7,12 @@ import javax.inject.Inject
 
 class FakeApiService @Inject constructor() {
 
-    fun fetchAds(): List<AdDto> {
-        return SampleData.advertisementsSample
-    }
-
-    fun fetchQuizzes(): List<QuizDto> {
-        return SampleData.quizSample
-    }
+//    fun fetchAds(): List<AdDto> {
+//        return SampleData.advertisementsSample
+//    }
+//
+//    fun fetchQuizzes(): List<QuizDto> {
+//        return SampleData.quizSample
+//    }
 
 }

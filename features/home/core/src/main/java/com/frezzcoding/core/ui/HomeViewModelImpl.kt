@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 internal class HomeViewModelImpl @Inject constructor(
@@ -32,17 +33,21 @@ internal class HomeViewModelImpl @Inject constructor(
 
     override fun getFeed() {
         //combine the flows of both use cases
-        combine(
-            fetchQuizzesUseCase.invoke(),
-            fetchAdsUseCase.invoke()
-        ) { quizzes, ads ->
-            HomeUiState(ads, quizzes)
-        }.catch {
-            Log.e("HomeViewModelImpl", "issue found : $it")
-        }.onEach { newState ->
-            _uiState.value = newState
-        }.launchIn(viewModelScope)
+        viewModelScope.launch {
+            combine(
+                fetchQuizzesUseCase.invoke(),
+                fetchAdsUseCase.invoke()
+            ) { quizzes, ads ->
+                HomeUiState(ads, quizzes)
+            }.catch {
+                Log.e("HomeViewModelImpl", "issue found : $it")
+            }.onEach { newState ->
+                _uiState.value = newState
+            }.collect {
+                it
+            }
 
+        }
     }
 
     override fun playVideo(quiz: QuizDetails?) {

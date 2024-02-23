@@ -3,6 +3,7 @@ package com.frezzcoding.core.domain.usecase
 import com.frezzcoding.HomeRepository
 import com.frezzcoding.domain.models.ad.AdDetails
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 internal class FetchAdsUseCase @Inject constructor(
