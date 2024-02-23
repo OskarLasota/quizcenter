@@ -66,7 +66,6 @@ allprojects {
                 ],
                 firebase    : [
                         "com.google.firebase:firebase-bom:$firebase",
-                        "com.google.firebase:firebase-analytics",
                         "com.google.firebase:firebase-database:$firebaseDatabase"
                 ]
         ]

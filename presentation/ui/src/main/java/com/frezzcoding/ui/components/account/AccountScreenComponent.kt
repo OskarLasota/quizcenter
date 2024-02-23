@@ -16,7 +16,8 @@ fun AccountScreenComponent() {
             .fillMaxHeight()
             .fillMaxWidth()
     ) {
-        //part1
-        //part2
+        //part1 account info
+        //part2 horizontal scroll for sections
+        //part3 sections content
     }
 }
