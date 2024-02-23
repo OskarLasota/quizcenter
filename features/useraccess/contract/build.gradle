@@ -1,0 +1,41 @@
+apply from: "$rootDir/default-module-config.gradle"
+
+android {
+    namespace 'com.frezzcoding.quizcenter.features.useraccess.contract'
+    buildFeatures {
+        compose true
+    }
+}
+
+dependencies {
+
+    implementation(
+            deps.compose.ui,
+            deps.compose.material,
+            deps.debugCompose,
+            deps.hilt.hiltAndroid,
+            deps.compose.navigationCompose,
+            deps.compose.composeToolingUi,
+            deps.androidx.lifecycleKtx,
+            deps.androidx.lifecycleViewmodel,
+            deps.androidx.activityCompose,
+            deps.androidx.hiltNavigationCompose,
+            deps.coroutines,
+            deps.media3,
+            project(":domain"),
+            project(":data:network"),
+            project(":data:core"),
+            project(":features:home:contract"),
+            project(":presentation:media")
+    )
+    testImplementation(
+            test.androidTestCore,
+            test.core
+    )
+    debugImplementation(
+            deps.debugCompose
+    )
+    kapt(
+            deps.kaptHilt,
+    )
+}
