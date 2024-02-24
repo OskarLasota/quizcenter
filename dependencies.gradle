@@ -52,7 +52,7 @@ allprojects {
                         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinXcoroutines"
                 ],
                 coil        : [
-                        "io.coil-kt:coil-compose:2.4.0"
+                        "io.coil-kt:coil-compose:2.6.0"
                 ],
                 room        : [
                         runtime : "androidx.room:room-runtime:$room",
