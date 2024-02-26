@@ -13,7 +13,7 @@ allprojects {
         hiltCore = '2.50'
         hiltCompiler = '1.1.0-alpha01'
         hiltNavigationCompose = '1.0.0'
-        kotlinXcoroutines = '1.7.3'
+        kotlinXcoroutines = '1.8.0'
         mockito = '2.2.0'
         mockk = '1.13.9'
         room = '2.6.1'
