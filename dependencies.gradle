@@ -45,7 +45,7 @@ allprojects {
                         hiltAndroid: "com.google.dagger:hilt-android:$hiltCore",
                 ],
                 kaptHilt    : [
-                        "androidx.hilt:hilt-compiler:1.1.0",
+                        "androidx.hilt:hilt-compiler:1.2.0",
                         "com.google.dagger:hilt-compiler:$hiltCore",
                 ],
                 coroutines  : [
