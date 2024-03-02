@@ -24,12 +24,14 @@ internal class HomeRepositoryImpl @Inject constructor(
         return flow { emit(emptyList()) }
     }
 
-    override fun getQuizzes(): Flow<List<QuizDetails>> = flow {
+    override fun getQuizzes(uid: Int): Flow<List<QuizDetails>> = flow {
         try {
-            val reference = db.collection("/quizzes")
-            val result = reference.get().await()
+            val quizzesReference = db.collection("/quizzes").whereEqualTo("ownerId", uid)
+            val ownerReference = db.collection("/owner").document(uid.toString())
+            val resultTask = quizzesReference.get().await()
+            val ownerResultTask = ownerReference.get().await()
 
-            val quizzes: List<QuizDto> = result.map(quizMapper::snapshotToQuizDto)
+            val quizzes: List<QuizDto> = resultTask.documents.map(quizMapper::snapshotToQuizDto)
             val mappedQuizzes: List<QuizDetails> = quizzes.mapNotNull { quizMapper.apply(it) }
 
             emit(mappedQuizzes)

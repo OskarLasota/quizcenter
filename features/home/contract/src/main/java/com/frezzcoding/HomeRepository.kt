@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
     fun getAds(): Flow<List<AdDetails>>
-    fun getQuizzes(): Flow<List<QuizDetails>>
+    fun getQuizzes(uid: Int): Flow<List<QuizDetails>>
 }

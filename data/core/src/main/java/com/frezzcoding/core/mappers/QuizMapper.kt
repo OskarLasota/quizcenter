@@ -4,6 +4,7 @@ import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.domain.models.quiz.QuizOwner
 import com.frezzcoding.network.quiz.QuizDto
 import com.frezzcoding.network.quiz.QuizOwnerDto
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import javax.inject.Inject
 
@@ -24,12 +25,12 @@ class QuizMapper @Inject constructor() {
     }
 
     //todo unit test
-    fun snapshotToQuizDto(snapshot: QueryDocumentSnapshot): QuizDto {
+    fun snapshotToQuizDto(snapshot: DocumentSnapshot): QuizDto {
         return QuizDto(
             id = snapshot.id.toInt(),
-            description = snapshot.data["description"] as? String,
-            ownerId = (snapshot.data["ownerId"] as? Long)?.toInt(),
-            videoUrl = snapshot.data["videoUrl"] as? String,
+            description = snapshot.data?.get("description") as? String,
+            ownerId = (snapshot.data?.get("ownerId") as? Long)?.toInt(),
+            videoUrl = snapshot.data?.get("videoUrl") as? String,
         )
     }
 
