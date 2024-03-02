@@ -2,6 +2,7 @@ package com.frezzcoding.ui.components.home
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListItemInfo
@@ -42,7 +43,7 @@ fun HomeFeed(
         state = scrollState,
         modifier = modifier
             .background(MaterialTheme.colors.secondary)
-            .heightIn(max = listHeight)
+            .height(listHeight)
     ) {
         items(items) { item ->
             when (item) {
