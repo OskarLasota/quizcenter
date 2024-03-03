@@ -10,13 +10,14 @@ Social media inspired app that will allow users to post their own quizes.
  - MVVM 📳
  - Unit / UI Tests ⚠️
  - Clean Architecture 🪥
+ - Firebase
+ - CI / CD
 
 
 Order of work TODO list : 
-1. Create a kanban board for project management
-2. Create the actual quiz item view that will be displayed on homepage
-3. Create the actual ad item view that will be displayed on homepage
-4. Create new screen to post new quiz
-5. Create my account
-6. Create search functionality
+1. Create the actual quiz item view that will be displayed on homepage
+2. Create the actual ad item view that will be displayed on homepage
+3. Create new screen to post new quiz
+4. Create my account
+5. Create search functionality
 
