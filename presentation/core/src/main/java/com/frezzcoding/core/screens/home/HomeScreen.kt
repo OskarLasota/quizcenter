@@ -2,6 +2,7 @@ package com.frezzcoding.core.screens.home
 
 import android.util.Log
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
@@ -18,7 +19,9 @@ fun HomeScreen(
     navController: NavController,
     homeViewModel: HomeViewModel
 ) {
-    homeViewModel.getFeed()
+    LaunchedEffect(Unit) {
+        homeViewModel.getFeed()
+    }
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
     val displayList: ImmutableList<Any> = (state.ads + state.quizzes).toImmutableList()
 

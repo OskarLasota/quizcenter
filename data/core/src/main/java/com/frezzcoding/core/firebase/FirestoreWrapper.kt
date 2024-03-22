@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
+// todo add unit tests
 class FirestoreWrapper @Inject constructor(
     private val firestore: FirebaseFirestore
 ) {
