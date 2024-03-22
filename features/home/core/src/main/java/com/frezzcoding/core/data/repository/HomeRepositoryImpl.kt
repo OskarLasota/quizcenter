@@ -24,7 +24,7 @@ internal class HomeRepositoryImpl @Inject constructor(
 
     override fun getQuizzes(uid: Int): Flow<List<QuizDetails>> = flow {
         try {
-            val quizDocuments = db.getQuizzesCollection(uid.toString())
+            val quizDocuments = db.getQuizzesCollection(uid)
 
             val quizzes: List<QuizDto> = quizDocuments.map(quizMapper::snapshotToQuizDto)
             val mappedQuizzes: List<QuizDetails> = quizzes.mapNotNull { quizMapper.apply(it) }

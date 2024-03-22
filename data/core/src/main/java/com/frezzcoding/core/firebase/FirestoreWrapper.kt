@@ -10,9 +10,10 @@ class FirestoreWrapper @Inject constructor(
     private val firestore: FirebaseFirestore
 ) {
 
-    suspend fun getQuizzesCollection(uid: String): List<DocumentSnapshot> {
+    suspend fun getQuizzesCollection(uid: Int): List<DocumentSnapshot> {
         return try {
-            firestore.collection("/quizzes").whereEqualTo("ownerId", uid).get().await().documents
+            val collection = firestore.collection("/quizzes").whereEqualTo("ownerId", uid).get().await()
+            collection.documents
         } catch (exception: Exception) {
             //Crashlytics
             Log.e("FirestoreWrapper", "Error fetching owner collection for UID: $uid, $exception")
