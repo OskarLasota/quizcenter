@@ -38,6 +38,6 @@ dependencies {
             project(":domain"),
             project(":features:home:contract"),
             project(":presentation:media"),
-            project(":features:createquiz:contract"),
+            project(":features:createquiz:core"),
     )
 }

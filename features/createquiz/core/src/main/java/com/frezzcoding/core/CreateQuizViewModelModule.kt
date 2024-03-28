@@ -1,16 +1,16 @@
 package com.frezzcoding.core
 
-import com.frezzcoding.CreateQuizViewModel
+import com.frezzcoding.NewQuizComponent
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ActivityRetainedComponent
 
-@InstallIn(SingletonComponent::class)
+@InstallIn(ActivityRetainedComponent::class)
 @Module
-internal abstract class CreateQuizViewModelModule {
+internal abstract class CreateQuizModule {
 
     @Binds
-    abstract fun bindsQuizViewModel(impl: CreateQuizViewModelImpl): CreateQuizViewModel
+    abstract fun bindsNewQuizComponent(impl: NewQuizComponentImpl): NewQuizComponent
 
 }

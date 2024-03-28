@@ -16,11 +16,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.frezzcoding.CreateQuizViewModel
 import com.frezzcoding.HomeViewModel
+import com.frezzcoding.core.NewQuizScreen
 import com.frezzcoding.core.screens.account.AccountScreen
 import com.frezzcoding.core.screens.home.HomeScreen
-import com.frezzcoding.core.screens.newquiz.NewQuizScreen
 import com.frezzcoding.core.screens.search.SearchScreen
 import com.frezzcoding.ui.components.BottomNavigationBar
 import com.frezzcoding.ui.screens.Screens
@@ -28,7 +27,6 @@ import javax.inject.Inject
 
 class AppNavigator @Inject constructor(
     private val homeViewModel: HomeViewModel,
-    private val createQuizViewModel: CreateQuizViewModel
 ) {
 
     @Composable
@@ -37,13 +35,13 @@ class AppNavigator @Inject constructor(
         startDestination: String,
         scrollState: LazyListState
     ) {
-
         NavHost(navController = navController, startDestination = startDestination) {
             composable(route = Screens.HomeFeed.route) {
+                //todo instead of HomeScreen we
                 HomeScreen(navController = navController, homeViewModel)
             }
             composable(route = Screens.NewQuizScreens.route) {
-                NewQuizScreen(navController = navController, createQuizViewModel)
+                NewQuizScreen(navController = navController)
             }
             composable(route = Screens.SearchScreens.route) {
                 SearchScreen(navController = navController, homeViewModel)

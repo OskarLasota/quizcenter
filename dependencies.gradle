@@ -39,7 +39,6 @@ allprojects {
                         activityCompose      : "androidx.activity:activity-compose:1.8.2",
                         hiltNavigationCompose: "androidx.hilt:hilt-navigation-compose:$hiltCompiler",
                         foundation           : 'androidx.compose.foundation:foundation:1.7.0-alpha03'
-
                 ],
                 hilt        : [
                         hiltAndroid: "com.google.dagger:hilt-android:$hiltCore",

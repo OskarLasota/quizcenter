@@ -1,4 +1,4 @@
-package com.frezzcoding.ui.components.newquiz
+package com.frezzcoding.core
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -36,7 +36,7 @@ import com.frezzcoding.ui.themes.DefaultBlue
 import com.frezzcoding.ui.themes.DefaultGrey
 
 @Composable
-fun NewQuizComponent(
+fun NewQuizContent(
     onQuizPosted: () -> Unit,
     onQuizClosed: () -> Unit,
 ) {

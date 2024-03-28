@@ -26,7 +26,8 @@ dependencies {
             project(":data:network"),
             project(":data:core"),
             project(":features:createquiz:contract"),
-            project(":presentation:media")
+            project(":presentation:media"),
+            project(":presentation:ui")
     )
     testImplementation(
             test.androidTestCore,
