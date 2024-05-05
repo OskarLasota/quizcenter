@@ -37,8 +37,7 @@ import com.frezzcoding.ui.themes.DefaultGrey
 
 @Composable
 fun NewQuizContent(
-    onQuizPosted: () -> Unit,
-    onQuizClosed: () -> Unit,
+    viewModel: CreateQuizViewModel,
 ) {
     //top part with X button and Post button
     //mid content part - avatar on left and text box with description
@@ -49,15 +48,14 @@ fun NewQuizContent(
             .background(MaterialTheme.colors.secondary)
             .fillMaxHeight()
     ) {
-        QuizActionHeader(onQuizPosted, onQuizClosed)
+        QuizActionHeader(viewModel)
         QuizContentBox()
     }
 }
 
 @Composable
 fun QuizActionHeader(
-    onQuizPosted: () -> Unit,
-    onQuizClosed: () -> Unit
+    viewModel: CreateQuizViewModel,
 ) {
     Row(
         modifier = Modifier
@@ -65,7 +63,7 @@ fun QuizActionHeader(
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        IconButton(onClick = onQuizClosed) {
+        IconButton(onClick = viewModel::onQuizScreenClosed) {
             Icon(
                 imageVector = Icons.Default.Clear,
                 contentDescription = stringResource(id = R.string.exit_screen_action),
@@ -74,7 +72,7 @@ fun QuizActionHeader(
                     .size(28.dp)
             )
         }
-        IconButton(onClick = onQuizPosted) {
+        IconButton(onClick = viewModel::onCreateQuizAction) {
             Icon(
                 imageVector = Icons.Default.CheckCircle,
                 contentDescription = stringResource(id = R.string.submit_quiz_action),

@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-internal class FetchAdsUseCase @Inject constructor(
+class FetchAdsUseCase @Inject constructor(
     private val repo: HomeRepository
 ) {
 

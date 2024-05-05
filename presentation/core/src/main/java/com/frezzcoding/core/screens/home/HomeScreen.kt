@@ -5,9 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.frezzcoding.HomeUiState
-import com.frezzcoding.HomeViewModel
+import com.frezzcoding.core.ui.HomeViewModelImpl
 import com.frezzcoding.domain.models.quiz.QuizDetails
 import com.frezzcoding.ui.components.home.HomeFeed
 import kotlinx.collections.immutable.ImmutableList
@@ -17,7 +19,7 @@ import kotlinx.collections.immutable.toImmutableList
 @Composable
 fun HomeScreen(
     navController: NavController,
-    homeViewModel: HomeViewModel
+    homeViewModel: HomeViewModelImpl = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
         homeViewModel.getFeed()
@@ -35,7 +37,7 @@ fun HomeScreen(
     )
 }
 
-fun onVideoItemFullyVisible(item: QuizDetails?, viewModel: HomeViewModel) {
+fun onVideoItemFullyVisible(item: QuizDetails?, viewModel: HomeViewModelImpl) {
     when (item) {
         is QuizDetails -> {
             Log.e("home screen", "quiz video ready to play")
@@ -46,6 +48,6 @@ fun onVideoItemFullyVisible(item: QuizDetails?, viewModel: HomeViewModel) {
     }
 }
 
-fun onAdPressed(navController: NavController, homeViewModel: HomeViewModel) {
+fun onAdPressed(navController: NavController, homeViewModel: HomeViewModelImpl) {
 
 }

@@ -16,7 +16,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.frezzcoding.HomeViewModel
 import com.frezzcoding.core.NewQuizScreen
 import com.frezzcoding.core.screens.account.AccountScreen
 import com.frezzcoding.core.screens.home.HomeScreen
@@ -25,29 +24,27 @@ import com.frezzcoding.ui.components.BottomNavigationBar
 import com.frezzcoding.ui.screens.Screens
 import javax.inject.Inject
 
-class AppNavigator @Inject constructor(
-    private val homeViewModel: HomeViewModel,
-) {
+class AppNavigator @Inject constructor() {
 
     @Composable
     fun NavigationGraph(
         navController: NavHostController,
         startDestination: String,
-        scrollState: LazyListState
+        //scrollState: LazyListState
     ) {
+        //startDestination is not recomposed many times, need to check NavHost why that could be happening
         NavHost(navController = navController, startDestination = startDestination) {
             composable(route = Screens.HomeFeed.route) {
-                //todo instead of HomeScreen we
-                HomeScreen(navController = navController, homeViewModel)
+                HomeScreen(navController = navController)
             }
             composable(route = Screens.NewQuizScreens.route) {
                 NewQuizScreen(navController = navController)
             }
             composable(route = Screens.SearchScreens.route) {
-                SearchScreen(navController = navController, homeViewModel)
+                SearchScreen(navController = navController)
             }
             composable(route = Screens.AccountScreen.route) {
-                AccountScreen(navController = navController, homeViewModel)
+                AccountScreen(navController = navController)
             }
         }
     }
@@ -57,15 +54,9 @@ class AppNavigator @Inject constructor(
     @Composable
     fun SetupNavigation(startDestination: String) {
         val navController = rememberNavController()
-
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
-
-        val scrollState = rememberLazyListState()
-        val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } }
+        //val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } } // use this to hide nav bar on scroll
 
         Scaffold(bottomBar = {
-            if ((currentRoute == Screens.HomeFeed.route && state)) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -73,16 +64,11 @@ class AppNavigator @Inject constructor(
                         BottomNavigationBar(navController = navController)
                     }
                 }
-            } else {
-                Box(contentAlignment = Alignment.Center) {
-                    BottomNavigationBar(navController = navController)
-                }
-            }
         }) {
             NavigationGraph(
                 navController = navController,
                 startDestination = startDestination,
-                scrollState = scrollState
+                //scrollState = scrollState
             )
         }
     }
