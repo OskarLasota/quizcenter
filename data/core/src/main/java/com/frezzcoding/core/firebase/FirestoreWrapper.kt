@@ -13,7 +13,7 @@ class FirestoreWrapper @Inject constructor(
 
     suspend fun getQuizzesCollection(uid: Int): List<DocumentSnapshot> {
         return try {
-            val collection = firestore.collection("/quizzes").whereEqualTo("ownerId", uid).get().await()
+            val collection = firestore.collection("/quizzes").get().await()
             collection.documents
         } catch (exception: Exception) {
             //Crashlytics
@@ -22,13 +22,34 @@ class FirestoreWrapper @Inject constructor(
         }
     }
 
-    suspend fun getOwnerCollection(uid: String): DocumentSnapshot? {
+    suspend fun getOwnerCollection(uid: String): List<DocumentSnapshot>? {
         return try {
-            firestore.collection("/owner").document(uid).get().await()
+            val collection = firestore.collection("/owner").get().await()
+            collection.documents
         } catch (exception: Exception) {
             //Crashlytics
             Log.e("FirestoreWrapper", "Error fetching owner collection for UID: $uid, $exception")
             null
+        }
+    }
+
+    suspend fun getAnswersCollection(): List<DocumentSnapshot>? {
+        return try {
+            val collection = firestore.collection("/answers").get().await()
+            collection.documents
+        } catch (e: Exception) {
+            Log.e("FirestoreWrapper", "Error fetching owner collection for : $e")
+            null
+        }
+    }
+
+    suspend fun getQuestionCollection(): List<DocumentSnapshot?> {
+        return try {
+            val collection = firestore.collection("/question").get().await()
+            collection.documents
+        } catch (e: Exception) {
+            Log.e("FirestoreWrapper", "Error fetching question collection for: $e")
+            emptyList()
         }
     }
 

@@ -1,11 +1,14 @@
 package com.frezzcoding.ui.components
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.frezzcoding.ui.screens.Screens
@@ -23,7 +26,10 @@ fun BottomNavigationBar(navController: NavController) {
         Screens.AccountScreen
     )
 
-    BottomNavigation(backgroundColor = DefaultGreyish) {
+    BottomNavigation(
+        backgroundColor = DefaultGreyish,
+        modifier = Modifier.height(NAV_BAR_HEIGHT)
+    ) {
         screens.forEach { screen ->
             BottomNavigationItem(
                 icon = {
