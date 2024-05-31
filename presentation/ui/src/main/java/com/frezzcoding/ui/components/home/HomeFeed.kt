@@ -44,7 +44,7 @@ fun HomeFeed(
         state = scrollState,
         modifier = modifier
             .background(MaterialTheme.colors.secondary)
-            .padding(bottom = listHeight)
+            .height(listHeight)
     ) {
         items(items) { item ->
             when (item) {
