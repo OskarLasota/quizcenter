@@ -33,10 +33,23 @@ class FirestoreWrapper @Inject constructor(
         }
     }
 
-    suspend fun getAnswersCollection(): List<DocumentSnapshot>? {
+    suspend fun getOwnerListCollection(uids: List<Int>): List<DocumentSnapshot>? {
         return try {
-            val collection = firestore.collection("/answers").get().await()
-            collection.documents
+            uids.map {
+                firestore.collection("/owner").document(it.toString()).get().await()
+            }
+        } catch (exception: Exception) {
+            //Crashlytics
+            Log.e("FirestoreWrapper", "Error fetching owner collection, $exception")
+            null
+        }
+    }
+
+    suspend fun getAnswersCollection(ids: List<Int>): List<DocumentSnapshot>? {
+        return try {
+            ids.map {
+                firestore.collection("/answers").document(it.toString()).get().await()
+            }
         } catch (e: Exception) {
             Log.e("FirestoreWrapper", "Error fetching owner collection for : $e")
             null

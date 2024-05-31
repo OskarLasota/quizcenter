@@ -31,6 +31,7 @@ class QuizMapper @Inject constructor() {
             description = snapshot.data?.get("description") as? String,
             ownerId = (snapshot.data?.get("ownerId") as? Long)?.toInt(),
             videoUrl = snapshot.data?.get("videoUrl") as? String,
+            question = snapshot.data?.get("question") as? String
         )
     }
 

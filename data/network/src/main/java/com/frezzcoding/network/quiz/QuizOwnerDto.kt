@@ -1,3 +1,6 @@
 package com.frezzcoding.network.quiz
 
-data class QuizOwnerDto(val name: String)
+data class QuizOwnerDto(
+    val userId: Int?,
+    val name: String?
+)

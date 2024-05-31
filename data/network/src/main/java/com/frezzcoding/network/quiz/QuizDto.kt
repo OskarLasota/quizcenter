@@ -4,6 +4,7 @@ data class QuizDto(
     val id: Int?,
     //val statistics: QuizStatsDto?,
     val description: String?,
+    val question: String?,
     val ownerId: Int?,
     val videoUrl: String?
 )
