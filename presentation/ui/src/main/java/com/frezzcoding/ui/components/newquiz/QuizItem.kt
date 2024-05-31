@@ -56,7 +56,7 @@ fun NameAndUsername(quiz: QuizDetails) {
     )
     {
         Text(
-            text = "test name @tester", // todo add this to domain quiz model
+            text = "@${quiz.owner.name}",
             color = Color.White,
             fontFamily = FontFamily.Monospace,
             maxLines = 1,
