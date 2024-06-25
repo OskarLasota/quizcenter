@@ -30,23 +30,23 @@ internal class HomeRepositoryImpl @Inject constructor(
         return flow { emit(emptyList()) }
     }
 
+    //todo hide uid inside an analytics object to avoid confusion
     override fun getQuizzes(uid: Int): Flow<List<QuizDetails>> = flow {
         try {
+            //getQuizzes from firebase
             val quizDocuments = db.getQuizzesCollection(uid)
             val quizzes: List<QuizDto> = quizDocuments.map(quizMapper::snapshotToQuizDto)
-            val mappedQuizzes: List<QuizDetails> = quizzes.mapNotNull { quizMapper.apply(it) }
 
+            //getAnswers from available quizzes
             val answerDocuments = db.getAnswersCollection(quizzes.mapNotNull { it.id })
             val answers: List<AnswerDto> = answerDocuments?.map(answersMapper::snapshotToAnswerDto) ?: emptyList()
-            val mappedAnswers: List<AnswerModel> = answers.mapNotNull { answersMapper.apply(it) }
-            //todo maybe the above can be done in another class
 
-            //getOwners from ownerIds
+            //getOwners from available quizzes
             val ownerDocuments = db.getOwnerListCollection(quizzes.mapNotNull { it.ownerId })
             val owners: List<QuizOwnerDto> = ownerDocuments?.map(ownerDetailsMapper::snapshotToOwnerDto) ?: emptyList()
-            val mappedOwners: List<QuizOwner> = owners.mapNotNull { ownerDetailsMapper.apply(it) }
 
-            emit(mappedQuizzes)
+            val result = quizzes.map { quiz -> quizMapper.apply(quiz, answers.find { it.quizId == quiz.id}, owners.find { it.userId == quiz.ownerId }) }
+            emit(result.filterNotNull())
         } catch (exception: Exception) {
             Log.e("HomeRepositoryImpl", exception.toString())
             emit(emptyList())
