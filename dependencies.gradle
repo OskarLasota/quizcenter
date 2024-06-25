@@ -66,7 +66,7 @@ allprojects {
                 firebase    : [
                         "com.google.firebase:firebase-bom:$firebase",
                         "com.google.firebase:firebase-database:$firebaseDatabase",
-                        "com.google.firebase:firebase-firestore-ktx:24.10.3"
+                        "com.google.firebase:firebase-firestore-ktx:25.0.0"
                 ]
         ]
 
