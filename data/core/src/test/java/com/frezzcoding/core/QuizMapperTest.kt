@@ -1,8 +1,12 @@
 package com.frezzcoding.core
 
+import android.util.Log
 import com.frezzcoding.core.mappers.QuizMapper
+import io.mockk.every
+import io.mockk.mockkStatic
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Before
 import org.junit.Test
 
 
@@ -10,39 +14,67 @@ class QuizMapperTest {
 
     private val underTest = QuizMapper()
 
-    @Test
-    fun `when dto id is null then returns null`() {
-        val dto = correctQuizDto.copy(id = null)
-
-        assertNull(underTest.apply(dto))
+    @Before
+    fun setup() {
+        mockkStatic(Log::class)
+        every { Log.e(any(), any()) } returns 0
     }
 
     @Test
-    fun `when dto userId is null then returns null`() {
-        val dto = correctQuizDto.copy(userId = null)
+    fun `when quiz id is null then returns null`() {
+        val quiz = correctQuizDto.copy(id = null)
 
-        assertNull(underTest.apply(dto))
+        assertNull(underTest.apply(quiz, correctQuizAnswerDto, correctQuizOwnerDto))
     }
 
     @Test
-    fun `when dto content description is null then returns null`() {
-        val dto = correctQuizDto.copy(content = correctQuizContentDto.copy(description = null))
+    fun `when quiz ownerId is null then returns null`() {
+        val quiz = correctQuizDto.copy(ownerId = null)
 
-        assertNull(underTest.apply(dto))
+        assertNull(underTest.apply(quiz, correctQuizAnswerDto, correctQuizOwnerDto))
     }
 
     @Test
-    fun `when dto is correct then returns correctly mapped domain model`() {
-        val result = underTest.apply(correctQuizDto)
+    fun `when quiz description is null then returns null`() {
+        val quiz = correctQuizDto.copy(description = null)
+
+        assertNull(underTest.apply(quiz, correctQuizAnswerDto, correctQuizOwnerDto))
+    }
+
+    @Test
+    fun `when answer is null then returns null`() {
+        assertNull(underTest.apply(correctQuizDto, null, correctQuizOwnerDto))
+    }
+
+    @Test
+    fun `when owner is null then returns null`() {
+        assertNull(underTest.apply(correctQuizDto, correctQuizAnswerDto, null))
+    }
+
+    @Test
+    fun `when owner user id is null then returns null`() {
+        val owner = correctQuizOwnerDto.copy(userId = null)
+
+        assertNull(underTest.apply(correctQuizDto, correctQuizAnswerDto, owner))
+    }
+
+    @Test
+    fun `maps QuizDetails correctly`() {
+        val result = underTest.apply(correctQuizDto, correctQuizAnswerDto, correctQuizOwnerDto)
 
         assertEquals(correctQuizModel, result)
     }
 
     @Test
-    fun `when dto video is null map null to domain`() {
-        val result = underTest.apply(correctQuizDto.copy(video = null))
+    fun `when answers are null then return empty`() {
+        val emptyAnswers = correctQuizAnswerDto.copy(
+            firstAnswer = null,
+            secondAnswer = null,
+            thirdAnswer = null
+        )
+        val result = underTest.apply(correctQuizDto, emptyAnswers, correctQuizOwnerDto)
 
-        assertEquals(correctQuizModel.copy(video = null), result)
+        assertEquals(correctQuizModel.copy(content = questionWithEmptyAnswers), result)
     }
 
 }
