@@ -17,24 +17,14 @@ import javax.inject.Inject
 
 class QuizMapper @Inject constructor() {
 
-    fun apply(quiz: QuizDto, answers: AnswerDto?, owner: QuizOwnerDto?): QuizDetails? {
-        if (quiz.id == null) return null
-        if (quiz.description == null) return null
-        if (quiz.ownerId == null) return null
-        if (owner == null) return null
-        if (owner.userId == null) return null
+    fun apply(quiz: QuizDto, answer: AnswerDto?, owner: QuizOwnerDto?): QuizDetails? {
+        if (areMandatoryFieldsNull(quiz, answer, owner)) return null
 
         return QuizDetails(
             id = quiz.id!!,
             description = quiz.description!!,
-            content = mapOf(
-                QuizQuestion(quiz.question.handleNullString(TAG_Q)) to listOf(
-                    QuizAnswer(answers?.firstAnswer.handleNullString(TAG_FIRST), true),
-                    QuizAnswer(answers?.secondAnswer.handleNullString(TAG_SECOND), false),
-                    QuizAnswer(answers?.thirdAnswer.handleNullString(TAG_THIRD), false)
-                )
-            ),
-            owner = QuizOwner(owner.name.handleNullString(TAG_NAME), owner.userId!!),
+            content = mapQuizContent(quiz, answer!!),
+            owner = mapQuizOwner(owner!!),
             video = null
         )
     }
@@ -47,6 +37,35 @@ class QuizMapper @Inject constructor() {
             videoUrl = snapshot.data?.get(VIDEO_URL) as? String,
             question = snapshot.data?.get(QUESTION) as? String
         )
+    }
+
+    private fun mapQuizContent(quiz: QuizDto, answer: AnswerDto): Map<QuizQuestion, List<QuizAnswer>> {
+        return mapOf(
+            QuizQuestion(quiz.question.handleNullString(TAG_Q)) to listOf(
+                QuizAnswer(answer.firstAnswer.handleNullString(TAG_FIRST), true),
+                QuizAnswer(answer.secondAnswer.handleNullString(TAG_SECOND), false),
+                QuizAnswer(answer.thirdAnswer.handleNullString(TAG_THIRD), false)
+            )
+        )
+    }
+
+    private fun mapQuizOwner(owner: QuizOwnerDto): QuizOwner {
+        return QuizOwner(owner.name.handleNullString(TAG_NAME), owner.userId!!)
+    }
+
+    private fun areMandatoryFieldsNull(
+        quiz: QuizDto,
+        answer: AnswerDto?,
+        owner: QuizOwnerDto?
+    ): Boolean {
+        if (quiz.id == null) return true
+        if (quiz.description == null) return true
+        if (quiz.ownerId == null) return true
+        if (answer == null) return true
+        if (owner == null) return true
+        if (owner.userId == null) return true
+
+        return false
     }
 
     private companion object {
