@@ -41,7 +41,8 @@ dependencies {
     )
     implementation(
             project(":data:network"),
-            project(":domain")
+            project(":domain"),
+            project(":infrastructure")
     )
 
 }
