@@ -21,9 +21,6 @@ fun HomeScreen(
     navController: NavController,
     homeViewModel: HomeViewModelImpl = hiltViewModel()
 ) {
-    LaunchedEffect(Unit) {
-        homeViewModel.getFeed()
-    }
     val state by homeViewModel.state.collectAsState(initial = HomeUiState())
     val displayList: ImmutableList<Any> = (state.ads + state.quizzes).toImmutableList()
 
