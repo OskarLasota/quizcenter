@@ -3,9 +3,11 @@ package com.frezzcoding.core.screens
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -50,7 +52,7 @@ class AppNavigator @Inject constructor() {
         val navController = rememberNavController()
         //val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } } // use this to hide nav bar on scroll
 
-        Scaffold(bottomBar = {
+        Scaffold(backgroundColor = MaterialTheme.colors.secondary, bottomBar = {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(contentAlignment = Alignment.Center) {
                         BottomNavigationBar(navController = navController)
