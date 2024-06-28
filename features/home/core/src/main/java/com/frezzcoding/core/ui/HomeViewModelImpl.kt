@@ -24,7 +24,7 @@ class HomeViewModelImpl @Inject constructor(
     private val fetchAdsUseCase: FetchAdsUseCase,
     private val fetchQuizzesUseCase: FetchQuizzesUseCase,
     val player: MediaPlayerManager,
-): ViewModel() {
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
 
@@ -32,7 +32,22 @@ class HomeViewModelImpl @Inject constructor(
 
     private var previousViewed: Int? = 0
 
+    init {
+        makeFeedApiCall()
+    }
+
     fun getFeed() {
+        makeFeedApiCall()
+    }
+
+    fun playVideo(quiz: QuizDetails?) {
+        if (quiz?.video != null && previousViewed != quiz.id) {
+            player.playVideo(quiz.id)
+            previousViewed = quiz.id
+        }
+    }
+
+    private fun makeFeedApiCall() {
         //combine the flows of both use cases
         viewModelScope.launch {
             combine(
@@ -44,15 +59,7 @@ class HomeViewModelImpl @Inject constructor(
                 Log.e("HomeViewModelImpl", "issue found : $it")
             }.onEach { newState ->
                 _uiState.value = newState
-            }.collect() 
-
-        }
-    }
-
-    fun playVideo(quiz: QuizDetails?) {
-        if (quiz?.video != null && previousViewed != quiz.id) {
-            player.playVideo(quiz.id)
-            previousViewed = quiz.id
+            }.collect()
         }
     }
 
