@@ -38,10 +38,11 @@ fun BottomNavigationBar(navController: NavController) {
                         contentDescription = stringResource(id = screen.titleResId)
                     )
                 },
-                selected = currentRoute == Screens.HomeFeed.route,
+                selected = currentRoute == screen.route,
                 onClick = {
                     navController.navigate(screen.route) {
                         popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
                             saveState = true
                         }
                         launchSingleTop = true
