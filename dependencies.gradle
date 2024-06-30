@@ -10,7 +10,7 @@ allprojects {
         androidXjunit = '1.1.5'
         espresso = '3.5.1'
         navigationCompose = '2.5.2'
-        hiltCore = '2.51'
+        hiltCore = '2.51.1'
         hiltCompiler = '1.2.0'
         hiltNavigationCompose = '1.0.0'
         kotlinXcoroutines = '1.8.0'
