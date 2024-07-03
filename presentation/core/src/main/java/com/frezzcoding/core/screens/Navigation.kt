@@ -26,9 +26,7 @@ class AppNavigator @Inject constructor() {
     fun NavigationGraph(
         navController: NavHostController,
         startDestination: String,
-        //scrollState: LazyListState
     ) {
-        //startDestination is not recomposed many times, need to check NavHost why that could be happening
         NavHost(navController = navController, startDestination = startDestination) {
             composable(route = Screens.HomeFeed.route) {
                 HomeScreen(navController = navController)
@@ -50,7 +48,6 @@ class AppNavigator @Inject constructor() {
     @Composable
     fun SetupNavigation(startDestination: String) {
         val navController = rememberNavController()
-        //val state by remember { derivedStateOf { scrollState.firstVisibleItemIndex == 0 } } // use this to hide nav bar on scroll
 
         Scaffold(backgroundColor = MaterialTheme.colors.secondary, bottomBar = {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -62,7 +59,6 @@ class AppNavigator @Inject constructor() {
             NavigationGraph(
                 navController = navController,
                 startDestination = startDestination,
-                //scrollState = scrollState
             )
         }
     }
