@@ -1,6 +1,7 @@
 package com.frezzcoding.ui.components.newquiz
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,13 +10,21 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.ui.PlayerView
@@ -41,7 +50,7 @@ fun QuizItem(
             NameAndUsername(quiz)
             Spacer(modifier = Modifier.size(1.dp))
             FeedContent(quiz, player, onPressed)
-            Spacer(modifier = Modifier.size(10.dp))
+            Spacer(modifier = Modifier.size(4.dp))
             QuizActions(quiz)
         }
     }
@@ -90,6 +99,51 @@ fun FeedContent(
 }
 
 @Composable
+fun QuizActions(quiz: QuizDetails) {
+    Box {
+        Column {
+            Button(
+                onClick = { {  } },
+                colors = ButtonDefaults.buttonColors(
+                    //backgroundColor = if (isCorrectAnswer == true) Color.Green else Color.LightGray
+                ),
+            ) {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterStart
+                ) {
+                    Text(
+                        text = "Correct Answer",
+                        fontSize = 16.sp,
+                    )
+                }
+            }
+            var selected by remember { mutableStateOf(false) }
+
+            Button(
+                onClick = { selected = !selected },
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = if (!selected) Color.Red else Color.LightGray
+                ),
+            ) {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterStart
+                ) {
+                    Text(
+                        text = "Incorrect Answer",
+                        fontSize = 16.sp,
+                    )
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@Composable
 fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager) {
     AndroidView(
         factory = { context ->
@@ -117,16 +171,4 @@ fun VideoPlayerItem(quiz: QuizDetails, player: MediaPlayerManager) {
             .fillMaxWidth()
             .aspectRatio(16 / 9f)
     )
-}
-
-@Composable
-fun QuizActions(quiz: QuizDetails) {
-    Box(
-        modifier = Modifier
-            .background(MaterialTheme.colors.background)
-            .fillMaxWidth()
-    )
-    {
-        // Add action buttons here
-    }
 }
