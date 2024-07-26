@@ -39,13 +39,13 @@ class QuizMapper @Inject constructor() {
         )
     }
 
-    private fun mapQuizContent(quiz: QuizDto, answer: AnswerDto): Map<QuizQuestion, List<QuizAnswer>> {
-        return mapOf(
+    private fun mapQuizContent(quiz: QuizDto, answer: AnswerDto): Pair<QuizQuestion, List<QuizAnswer>> {
+        return (
             QuizQuestion(quiz.question.handleNullString(TAG_Q)) to listOf(
                 QuizAnswer(answer.firstAnswer.handleNullString(TAG_FIRST), true),
                 QuizAnswer(answer.secondAnswer.handleNullString(TAG_SECOND), false),
                 QuizAnswer(answer.thirdAnswer.handleNullString(TAG_THIRD), false)
-            )
+            ).filter { it.content.isNotEmpty() }.shuffled()
         )
     }
 
