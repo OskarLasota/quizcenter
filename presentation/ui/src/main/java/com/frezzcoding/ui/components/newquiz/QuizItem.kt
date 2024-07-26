@@ -8,23 +8,27 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.ui.PlayerView
 import com.example.media.MediaPlayerManager
 import com.frezzcoding.domain.models.quiz.QuizDetails
+import com.frezzcoding.ui.components.QuizButton
 import com.frezzcoding.ui.components.UserAvatar
+import com.frezzcoding.ui.themes.DefaultLight
+import com.frezzcoding.ui.themes.Green
+import com.frezzcoding.ui.themes.Red
 
 @Composable
 fun QuizItem(
@@ -106,24 +110,22 @@ fun FeedContent(
 fun QuizAnswers(quiz: QuizDetails) {
     Box {
         Column {
-
+            var quizAnswered by remember { mutableStateOf(false) }
             quiz.content.second.forEach {
-                Button(
-                    onClick = { { } },
-                    colors = ButtonDefaults.buttonColors(
-                        //backgroundColor = if (isCorrectAnswer == true) Color.Green else Color.LightGray
-                    ),
-                ) {
-                    Box(
-                        modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = it.content,
-                            fontSize = 16.sp,
-                        )
-                    }
+                val backgroundColor = when {
+                    !quizAnswered -> DefaultLight
+                    it.isCorrect -> Green
+                    !it.isCorrect -> Red
+                    else -> DefaultLight
                 }
+
+                QuizButton(
+                    content = it.content,
+                    backgroundColor = backgroundColor,
+                    onClick = {
+                        quizAnswered = true
+                    }
+                )
             }
         }
     }
